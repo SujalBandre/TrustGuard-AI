@@ -1,0 +1,9 @@
+# Dataset configuration for YOLOv8 Damage Detector
+# Classes: fake_damage (0), real_damage (1)
+
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 2
+names: ['fake_damage', 'real_damage']

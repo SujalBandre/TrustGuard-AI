@@ -1,0 +1,605 @@
+[
+  {
+    "id": 32,
+    "product_url": "https://www.amazon.in/Symbol-Premium-Stretch-T-Shirt-Regular/dp/B0DK9JBVTT/?_encoding=UTF8&pd_rd_w=aNRq2&content-id=amzn1.sym.7998c9a0-d63d-4775-a557-86e41b560555&pf_rd_p=7998c9a0-d63d-4775-a557-86e41b560555&pf_rd_r=W01W50SV6CG37PX7TBFP&pd_rd_wg=mvqMc&pd_rd_r=8d8f980e-d7d0-401e-81df-edbfb1b1f17b&ref_=pd_hp_d_atf_dealz_cs&th=1&psc=1",
+    "product_name": "Amazon Product (Dataset Analysis)",
+    "platform": "Amazon",
+    "trust_score": 55.5,
+    "fake_count": 326,
+    "total_reviews": 732,
+    "fake_pct": 44.5,
+    "risk_level": "MEDIUM",
+    "tags": [
+      "SUPERLATIVE_OVERUSE",
+      "EXCESSIVE_EXCLAMATIONS",
+      "AUTHOR_VELOCITY_ABUSE",
+      "SENTIMENT_MISMATCH",
+      "CAPS_OVERUSE"
+    ],
+    "ts": "2026-06-30T18:39:21.695269"
+  },
+  {
+    "id": 31,
+    "product_url": "https://www.amazon.in/Symbol-Premium-Stretch-T-Shirt-Regular/dp/B0DK9JBVTT/?_encoding=UTF8&pd_rd_w=aNRq2&content-id=amzn1.sym.7998c9a0-d63d-4775-a557-86e41b560555&pf_rd_p=7998c9a0-d63d-4775-a557-86e41b560555&pf_rd_r=W01W50SV6CG37PX7TBFP&pd_rd_wg=mvqMc&pd_rd_r=8d8f980e-d7d0-401e-81df-edbfb1b1f17b&ref_=pd_hp_d_atf_dealz_cs&th=1&psc=1",
+    "product_name": "Amazon Product (Dataset Analysis)",
+    "platform": "Amazon",
+    "trust_score": 55.5,
+    "fake_count": 326,
+    "total_reviews": 732,
+    "fake_pct": 44.5,
+    "risk_level": "MEDIUM",
+    "tags": [
+      "SUPERLATIVE_OVERUSE",
+      "EXCESSIVE_EXCLAMATIONS",
+      "AUTHOR_VELOCITY_ABUSE",
+      "SENTIMENT_MISMATCH",
+      "CAPS_OVERUSE"
+    ],
+    "ts": "2026-06-30T18:33:28.991719"
+  },
+  {
+    "id": 30,
+    "product_url": "https://www.amazon.in/Symbol-Premium-Stretch-T-Shirt-Regular/dp/B0DK9JBVTT/",
+    "product_name": "Amazon Product",
+    "platform": "Amazon",
+    "trust_score": 50.0,
+    "fake_count": 4,
+    "total_reviews": 8,
+    "fake_pct": 50.0,
+    "risk_level": "MEDIUM",
+    "tags": [
+      "SUSPICIOUSLY_SHORT",
+      "REPEATED_PHRASES",
+      "HIGH_FAKE_PROBABILITY",
+      "Price Manipulation Detected"
+    ],
+    "ts": "2026-06-30T18:24:43.494937"
+  },
+  {
+    "id": 29,
+    "product_url": "https://www.amazon.in/Symbol-Premium-Stretch-T-Shirt-Regular/dp/B0DK9JBVTT/?_encoding=UTF8&pd_rd_w=aNRq2&content-id=amzn1.sym.7998c9a0-d63d-4775-a557-86e41b560555&pf_rd_p=7998c9a0-d63d-4775-a557-86e41b560555&pf_rd_r=W01W50SV6CG37PX7TBFP&pd_rd_wg=mvqMc&pd_rd_r=8d8f980e-d7d0-401e-81df-edbfb1b1f17b&ref_=pd_hp_d_atf_dealz_cs&th=1&psc=1",
+    "product_name": "Amazon Product",
+    "platform": "Amazon",
+    "trust_score": 50.0,
+    "fake_count": 4,
+    "total_reviews": 8,
+    "fake_pct": 50.0,
+    "risk_level": "MEDIUM",
+    "tags": [
+      "SUSPICIOUSLY_SHORT",
+      "REPEATED_PHRASES",
+      "HIGH_FAKE_PROBABILITY",
+      "Price Manipulation Detected"
+    ],
+    "ts": "2026-06-30T18:24:40.629169"
+  },
+  {
+    "id": 28,
+    "product_url": "https://www.amazon.in/Symbol-Premium-Stretch-T-Shirt-Regular/dp/B0DK9JBVTT/?_encoding=UTF8&pd_rd_w=aNRq2&content-id=amzn1.sym.7998c9a0-d63d-4775-a557-86e41b560555&pf_rd_p=7998c9a0-d63d-4775-a557-86e41b560555&pf_rd_r=W01W50SV6CG37PX7TBFP&pd_rd_wg=mvqMc&pd_rd_r=8d8f980e-d7d0-401e-81df-edbfb1b1f17b&ref_=pd_hp_d_atf_dealz_cs&th=1&psc=1",
+    "product_name": "Symbol Premium Men's Cotton Stretch T-Shirt (Regular Fit)",
+    "platform": "Amazon",
+    "trust_score": 50.0,
+    "fake_count": 4,
+    "total_reviews": 8,
+    "fake_pct": 50.0,
+    "risk_level": "MEDIUM",
+    "tags": [
+      "REPEATED_PHRASES",
+      "HIGH_FAKE_PROBABILITY",
+      "SUSPICIOUSLY_SHORT",
+      "Price Manipulation Detected"
+    ],
+    "ts": "2026-06-30T18:18:17.403003"
+  },
+  {
+    "id": 27,
+    "product_url": "https://www.amazon.in/Symbol-Premium-Stretch-T-Shirt-Regular/dp/B0DK9JBVTT/?_encoding=UTF8&pd_rd_w=aNRq2&content-id=amzn1.sym.7998c9a0-d63d-4775-a557-86e41b560555&pf_rd_p=7998c9a0-d63d-4775-a557-86e41b560555&pf_rd_r=W01W50SV6CG37PX7TBFP&pd_rd_wg=mvqMc&pd_rd_r=8d8f980e-d7d0-401e-81df-edbfb1b1f17b&ref_=pd_hp_d_atf_dealz_cs&th=1&psc=1",
+    "product_name": "Symbol Premium Men's Cotton Stretch T-Shirt (Regular Fit)",
+    "platform": "Amazon",
+    "trust_score": 50.0,
+    "fake_count": 4,
+    "total_reviews": 8,
+    "fake_pct": 50.0,
+    "risk_level": "MEDIUM",
+    "tags": [
+      "SUSPICIOUSLY_SHORT",
+      "REPEATED_PHRASES",
+      "HIGH_FAKE_PROBABILITY",
+      "Price Manipulation Detected"
+    ],
+    "ts": "2026-06-30T18:12:09.932960"
+  },
+  {
+    "id": 26,
+    "product_url": "https://www.amazon.in/Van-Heusen-Regular-T-Shirt-VWCTURGP877893_Navy/dp/B0BMLZJPSD/?_encoding=UTF8&pd_rd_w=hscIf&content-id=amzn1.sym.7998c9a0-d63d-4775-a557-86e41b560555&pf_rd_p=7998c9a0-d63d-4775-a557-86e41b560555&pf_rd_r=1G2MHNNVB1HGT9KZDX4Z&pd_rd_wg=OX5Bw&pd_rd_r=6fa45cf8-ed74-490c-a38e-cc396d2a54f0&ref_=pd_hp_d_atf_dealz_cs&th=1&psc=1",
+    "product_name": "Amazon Product (Dataset Analysis)",
+    "platform": "Amazon",
+    "trust_score": 53.1,
+    "fake_count": 343,
+    "total_reviews": 731,
+    "fake_pct": 46.9,
+    "risk_level": "MEDIUM",
+    "tags": [
+      "SUPERLATIVE_OVERUSE",
+      "ALL_CAPS_SHOUTING",
+      "SUSPICIOUSLY_SHORT",
+      "HIGH_SIMILARITY_CLONE",
+      "SYNDICATE_REVIEWER_PATTERN"
+    ],
+    "ts": "2026-06-30T16:36:42.127217"
+  },
+  {
+    "id": 25,
+    "product_url": "https://www.amazon.in/Van-Heusen-Athleisure-Antibacterial-88402_SLATE_XL/dp/B08LV8JFKV/?_encoding=UTF8&pd_rd_w=KMDCi&content-id=amzn1.sym.163c611d-45af-44a2-803f-ecf4de66c803%3Aamzn1.symc.b1464ab7-6d6a-4fc8-be8f-f2e9bcc64228&pf_rd_p=163c611d-45af-44a2-803f-ecf4de66c803&pf_rd_r=EBBKC548DTHH59RTD222&pd_rd_wg=y88CI&pd_rd_r=2c223226-5748-4e9a-8e27-342809feebb6&ref_=pd_hp_d_btf_ci_mcx_mr_ca_id_hp_d",
+    "product_name": "Amazon Product (Dataset Analysis)",
+    "platform": "Amazon",
+    "trust_score": 53.9,
+    "fake_count": 344,
+    "total_reviews": 746,
+    "fake_pct": 46.1,
+    "risk_level": "MEDIUM",
+    "tags": [
+      "CAPS_OVERUSE",
+      "HIGH_FAKE_PROBABILITY",
+      "ALL_CAPS_SHOUTING",
+      "SYNDICATE_REVIEWER_PATTERN",
+      "AUTHOR_VELOCITY_ABUSE"
+    ],
+    "ts": "2026-06-30T15:44:57.345516"
+  },
+  {
+    "id": 24,
+    "product_url": "https://www.amazon.in/Symbol-Premium-Stretch-T-Shirt-Regular/dp/B0DK9JBVTT/ref=sr_1_1_sspa?_encoding=UTF8&content-id=amzn1.sym.eaac1fe1-8b01-4aee-b5c5-aeccbfcaeb54&pd_rd_r=db095fa9-84e9-4d46-afca-b57a196cf6fa&pd_rd_w=PMqM6&pd_rd_wg=4YeFo&qid=1782833310&refinements=p_85%3A10440599031%2Cp_36%3A60000-%2Cp_n_pct-off-with-tax%3A2665401031%2Cp_89%3AAllen+Solly%7CAmazon+Brand+-+Symbol%7CArrow%7CBeing+Human%7CBewakoof%7CCalvin+Klein%7CCalvin+Klein+Jeans%7CJack+%26+Jones%7CKingdom+of+White%7CLacoste%7CLee%7CLevi%27s%7CLinen+Club%7CMarks+%26+Spencer%7CPepe+Jeans%7CPeter+England%7CRed+Tape%7CSNITCH%7CSimon+Carter%7CSpykar%7CSymbol+Premium%7CThe+Indian+Garage+Co%7CThe+Souled+Store%7CTommy+Hilfiger%7CU.S.+POLO+ASSN.%7CU.S.+Polo+Assn%7CUNITED+COLORS+OF+BENETTON%7CVan+Heusen%7CWrangler%7Cadidas&rnid=3837712031&rps=1&s=apparel&sr=1-1-spons&aref=oegNZLEehw&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGZfYnJvd3Nl&psc=1",
+    "product_name": "Amazon Product (Dataset Analysis)",
+    "platform": "Amazon",
+    "trust_score": 52.9,
+    "fake_count": 346,
+    "total_reviews": 735,
+    "fake_pct": 47.1,
+    "risk_level": "MEDIUM",
+    "tags": [
+      "HIGH_FAKE_PROBABILITY",
+      "CAPS_OVERUSE",
+      "SENTIMENT_MISMATCH",
+      "REPEATED_PHRASES",
+      "AUTHOR_VELOCITY_ABUSE"
+    ],
+    "ts": "2026-06-30T15:40:41.169032"
+  },
+  {
+    "id": 23,
+    "product_url": "https://www.amazon.in/Symbol-Premium-Stretch-T-Shirt-Regular/dp/B0DK9JBVTT/ref=sr_1_1_sspa?_encoding=UTF8&content-id=amzn1.sym.eaac1fe1-8b01-4aee-b5c5-aeccbfcaeb54&pd_rd_r=db095fa9-84e9-4d46-afca-b57a196cf6fa&pd_rd_w=PMqM6&pd_rd_wg=4YeFo&qid=1782833310&refinements=p_85%3A10440599031%2Cp_36%3A60000-%2Cp_n_pct-off-with-tax%3A2665401031%2Cp_89%3AAllen+Solly%7CAmazon+Brand+-+Symbol%7CArrow%7CBeing+Human%7CBewakoof%7CCalvin+Klein%7CCalvin+Klein+Jeans%7CJack+%26+Jones%7CKingdom+of+White%7CLacoste%7CLee%7CLevi%27s%7CLinen+Club%7CMarks+%26+Spencer%7CPepe+Jeans%7CPeter+England%7CRed+Tape%7CSNITCH%7CSimon+Carter%7CSpykar%7CSymbol+Premium%7CThe+Indian+Garage+Co%7CThe+Souled+Store%7CTommy+Hilfiger%7CU.S.+POLO+ASSN.%7CU.S.+Polo+Assn%7CUNITED+COLORS+OF+BENETTON%7CVan+Heusen%7CWrangler%7Cadidas&rnid=3837712031&rps=1&s=apparel&sr=1-1-spons&aref=oegNZLEehw&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGZfYnJvd3Nl&psc=1",
+    "product_name": "Amazon Product (Dataset Analysis)",
+    "platform": "Amazon",
+    "trust_score": 52.9,
+    "fake_count": 346,
+    "total_reviews": 735,
+    "fake_pct": 47.1,
+    "risk_level": "MEDIUM",
+    "tags": [
+      "SENTIMENT_MISMATCH",
+      "SUSPICIOUSLY_SHORT",
+      "CAPS_OVERUSE",
+      "SUPERLATIVE_OVERUSE",
+      "SYNDICATE_REVIEWER_PATTERN"
+    ],
+    "ts": "2026-06-30T15:28:44.826779"
+  },
+  {
+    "id": 22,
+    "product_url": "https://www.amazon.in/Rabbit-Little-Genius-Learner-Neo/dp/B0GH744XZ9/ref=sr_1_1_sspa?dib=eyJ2IjoiMSJ9.LO0-M1Kc6esXP3ldmqCdEz6kn8AeYaozSiKVvgxeZW90WTzhzVtZ3ROSOYgFc3Z9v4twR49SSOm3DmdLdtWxIwq47S7CfiV-Sa9RcDb8Un3LZH6mTgJC6eUS8Q_5g7wuwn0TPfS80FlSN402uFhuecVoZXnn7CSyB3aBmNxjyJMLWmkvb_NjvAiqagOI-V_dm5gUyJzhsSA1V_wCe94ecCjvuTfbJRNfNCvMIpvE_sLA63mkQgpX6ZDJJF-PrU8BqJIussv7-G97saPdt9HLE4BXMPhAAR5JNqM3sKqGldI.ixqdNYOhnHBxu83dmyP00dzilLJFS7W-eN34mcSmeFU&dib_tag=se&keywords=Kids%2Bfurnishings&pf_rd_i=1380442031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_s=merchandised-search-7&qid=1782818353&sr=8-1-spons&aref=OLWLNgXfY5&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1",
+    "product_name": "Amazon Product (Dataset Analysis)",
+    "platform": "Amazon",
+    "trust_score": 55.8,
+    "fake_count": 332,
+    "total_reviews": 751,
+    "fake_pct": 44.2,
+    "risk_level": "MEDIUM",
+    "tags": [
+      "CAPS_OVERUSE",
+      "HIGH_FAKE_PROBABILITY",
+      "AUTHOR_VELOCITY_ABUSE",
+      "SYNDICATE_REVIEWER_PATTERN",
+      "SUPERLATIVE_OVERUSE"
+    ],
+    "ts": "2026-06-30T11:30:43.920057"
+  },
+  {
+    "id": 21,
+    "product_url": "https://www.amazon.in/Rabbit-Little-Genius-Learner-Neo/dp/B0GH744XZ9/ref=sr_1_1_sspa?dib=eyJ2IjoiMSJ9.LO0-M1Kc6esXP3ldmqCdEz6kn8AeYaozSiKVvgxeZW90WTzhzVtZ3ROSOYgFc3Z9v4twR49SSOm3DmdLdtWxIwq47S7CfiV-Sa9RcDb8Un3LZH6mTgJC6eUS8Q_5g7wuwn0TPfS80FlSN402uFhuecVoZXnn7CSyB3aBmNxjyJMLWmkvb_NjvAiqagOI-V_dm5gUyJzhsSA1V_wCe94ecCjvuTfbJRNfNCvMIpvE_sLA63mkQgpX6ZDJJF-PrU8BqJIussv7-G97saPdt9HLE4BXMPhAAR5JNqM3sKqGldI.ixqdNYOhnHBxu83dmyP00dzilLJFS7W-eN34mcSmeFU&dib_tag=se&keywords=Kids%2Bfurnishings&pf_rd_i=1380442031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_s=merchandised-search-7&qid=1782818353&sr=8-1-spons&aref=OLWLNgXfY5&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1",
+    "product_name": "Amazon Product (Dataset Analysis)",
+    "platform": "Amazon",
+    "trust_score": 55.8,
+    "fake_count": 332,
+    "total_reviews": 751,
+    "fake_pct": 44.2,
+    "risk_level": "MEDIUM",
+    "tags": [
+      "CAPS_OVERUSE",
+      "HIGH_FAKE_PROBABILITY",
+      "AUTHOR_VELOCITY_ABUSE",
+      "SYNDICATE_REVIEWER_PATTERN",
+      "SUPERLATIVE_OVERUSE"
+    ],
+    "ts": "2026-06-30T11:24:47.051058"
+  },
+  {
+    "id": 20,
+    "product_url": "https://www.amazon.in/Haier-Automatic-Washing-HWM70-AE-Moonlight/dp/B08ZJHJ5DJ/ref=sr_1_1_sspa?_encoding=UTF8&content-id=amzn1.sym.58c90a12-100b-4a2f-8e15-7c06f1abe2be&dib=eyJ2IjoiMSJ9.TjdhOiPP7u3yM2KPu-P1vmA0dLO881tU6BS-vQHVB7wmVgJd-rPXo7mPevwMgKxy3m7xi5c8KIfzRbYVAAxWf0WrvW1b6-9KE6FoEBGDK-DJy7loCbbS8LXcHXAzisJbA7ANuEtjgdHNTyDsdzs6YGzU93BENtDAuWrD46wxwZPO2hnmIPT3kPy089ySacoxX6L0bQJuaLbnDF2WXdcQjyg6AKjWm0VxnjboN0k9_A-E6G9BDcI8F1BEcHNY4IO9_Dwen7bu-C7q2a8H3U5E5R6dkGk67xB62gJLGRtxUmA.39iLdtS27vHbgHVhHYio_F2FgKD4_QxFXmVH0YtAayI&dib_tag=se&pd_rd_r=c0a63499-f7ad-41f7-81f6-d7b6cbf9b64e&pd_rd_w=Ab3kl&pd_rd_wg=QSReK&qid=1782817479&refinements=p_85%3A10440599031&rps=1&s=kitchen&sr=1-1-spons&aref=lOSvYsP7M5&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGZfYnJvd3Nl&psc=1",
+    "product_name": "Amazon Product (Dataset Analysis)",
+    "platform": "Amazon",
+    "trust_score": 56.8,
+    "fake_count": 320,
+    "total_reviews": 740,
+    "fake_pct": 43.2,
+    "risk_level": "MEDIUM",
+    "tags": [
+      "CAPS_OVERUSE",
+      "HIGH_FAKE_PROBABILITY",
+      "AUTHOR_VELOCITY_ABUSE",
+      "SYNDICATE_REVIEWER_PATTERN",
+      "SUPERLATIVE_OVERUSE"
+    ],
+    "ts": "2026-06-30T11:04:51.908141"
+  },
+  {
+    "id": 19,
+    "product_url": "https://www.amazon.in/Van-Heusen-Relaxed-T-Shirt-55429_Pink/dp/B0DK944MWG/?_encoding=UTF8&pd_rd_w=tt03x&content-id=amzn1.sym.7998c9a0-d63d-4775-a557-86e41b560555&pf_rd_p=7998c9a0-d63d-4775-a557-86e41b560555&pf_rd_r=31CFSFQKYQ6TMFXMSWQ9&pd_rd_wg=aXHl3&pd_rd_r=98b1e9df-24fe-4dfa-84e5-102cd0919683&ref_=pd_hp_d_atf_dealz_cs&th=1&psc=1",
+    "product_name": "Amazon Product (Dataset Analysis)",
+    "platform": "Amazon",
+    "trust_score": 56.7,
+    "fake_count": 321,
+    "total_reviews": 742,
+    "fake_pct": 43.3,
+    "risk_level": "MEDIUM",
+    "tags": [
+      "SYNDICATE_REVIEWER_PATTERN",
+      "ALL_CAPS_SHOUTING",
+      "SUSPICIOUSLY_SHORT",
+      "AUTHOR_VELOCITY_ABUSE",
+      "EXCESSIVE_EXCLAMATIONS"
+    ],
+    "ts": "2026-06-30T09:13:15.082981"
+  },
+  {
+    "id": 18,
+    "product_url": "https://www.amazon.in/Van-Heusen-Relaxed-T-Shirt-55429_Pink/dp/B0DK944MWG/?_encoding=UTF8&pd_rd_w=tt03x&content-id=amzn1.sym.7998c9a0-d63d-4775-a557-86e41b560555&pf_rd_p=7998c9a0-d63d-4775-a557-86e41b560555&pf_rd_r=31CFSFQKYQ6TMFXMSWQ9&pd_rd_wg=aXHl3&pd_rd_r=98b1e9df-24fe-4dfa-84e5-102cd0919683&ref_=pd_hp_d_atf_dealz_cs&th=1&psc=1",
+    "product_name": "Amazon Product (Dataset Analysis)",
+    "platform": "Amazon",
+    "trust_score": 56.7,
+    "fake_count": 321,
+    "total_reviews": 742,
+    "fake_pct": 43.3,
+    "risk_level": "MEDIUM",
+    "tags": [
+      "SYNDICATE_REVIEWER_PATTERN",
+      "ALL_CAPS_SHOUTING",
+      "SUSPICIOUSLY_SHORT",
+      "AUTHOR_VELOCITY_ABUSE",
+      "EXCESSIVE_EXCLAMATIONS"
+    ],
+    "ts": "2026-06-30T09:08:09.015730"
+  },
+  {
+    "id": 17,
+    "product_url": "https://www.amazon.in/Centrum-Multivitamin-extract-nutrients-Immunity/dp/B0BD1RMHJ6/ref=sr_1_1_sspa?adgrpid=1327112148528381&dib=eyJ2IjoiMSJ9.Uj_OsCJkkeOm71hFQ7JLpCci9Xxlq1p08J-PsQ7nKeh5QazznC1zrDb927575C5sar2l9TmDxw02OO-Hpgo6rASstQdazRFVCQtuZQsQUATv3Y3Yu5XUHgQKS0G1OSTw1v0jvXBaJp8vzJhHvMYLmJY2oJloVhenAX4BK2VPTBYRCQjpRKeRY3CPNx4LiV2KvlMJDnUAn-8G_NRhoG_R5ZwB4dyA6wGgn91vCmFXINm_STiwXh-7nXE7vcWzey5eDj7_ZwGl37Eydz7v_YzTa8tZqT_b0fWu1wnf0ic0vvw.X0YOHiSLeIaefxQAZcIV_0DEe2X7CCc_3jOgZlIYAfw&dib_tag=se&hvadid=82944841893797&hvbmt=bb&hvdev=c&hvlocphy=157087&hvnetw=o&hvqmt=b&hvtargid=kwd-82945393014646%3Aloc-90&hydadcr=5626_2501648&keywords=join+amazon+prime&mcid=3861a9d242543041b997efa1f39279d3&msclkid=95e6b821de641459153dd26258d0093b&qid=1782810294&sr=8-1-spons&aref=PEs1lFhgUL&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1",
+    "product_name": "Amazon Product (Dataset Analysis)",
+    "platform": "Amazon",
+    "trust_score": 55.7,
+    "fake_count": 326,
+    "total_reviews": 736,
+    "fake_pct": 44.3,
+    "risk_level": "MEDIUM",
+    "tags": [
+      "SYNDICATE_REVIEWER_PATTERN",
+      "ALL_CAPS_SHOUTING",
+      "SUSPICIOUSLY_SHORT",
+      "AUTHOR_VELOCITY_ABUSE",
+      "EXCESSIVE_EXCLAMATIONS"
+    ],
+    "ts": "2026-06-30T09:05:10.704672"
+  },
+  {
+    "id": 16,
+    "product_url": "https://www.amazon.com/ANRABESS-Shorts-Gingham-Pajama-Bottoms/dp/B0DK89638J/ref=sr_1_3?crid=3D5FI1A5V8L4E&dib=eyJ2IjoiMSJ9.kklslhHWyV0HpGEho8oppxlkxRpEyidhI8XOAX8_hL0UF_5iKcaPZAx7NcaMl-JfQ56qlu-Xtf4U2N-sjkTIHnTLhomPH2r_ov89CVEUXIBJtlBpJNELeHWV2a9SeVq1p8YKwwWOkdhZ8Pok-aN2R50H8qylWr7hNmMLwIXAb50EzOF6eca7jWcmYRJX4WjHD-nIKAHMMKdslC7a3Yx5BwTs69Euxm_TbBpyPbiMeCdZr_1f-tIfWv7o3akiQqI51wWsJUGS9vQXVEnqDMDDFDnfNZlNG7xNV9GHbTvN9vo.noC5ZIZGTzBtMWcuRT4pFPOwpNqkCiyMsX2XJDTSSwg&dib_tag=se&keywords=clothes&qid=1781543047&sprefix=%2Caps%2C415&sr=8-3&th=1&psc=1",
+    "product_name": "Amazon Product (Dataset Analysis)",
+    "platform": "Amazon",
+    "trust_score": 54.2,
+    "fake_count": 341,
+    "total_reviews": 744,
+    "fake_pct": 45.8,
+    "risk_level": "MEDIUM",
+    "tags": [
+      "CAPS_OVERUSE",
+      "REPEATED_PHRASES",
+      "ALL_CAPS_SHOUTING",
+      "SYNDICATE_REVIEWER_PATTERN",
+      "EXCESSIVE_EXCLAMATIONS"
+    ],
+    "ts": "2026-06-15T17:09:31.249892"
+  },
+  {
+    "id": 15,
+    "product_url": "https://www.amazon.com/ANRABESS-Shorts-Gingham-Pajama-Bottoms/dp/B0DK89638J/ref=sr_1_3?crid=3D5FI1A5V8L4E&dib=eyJ2IjoiMSJ9.kklslhHWyV0HpGEho8oppxlkxRpEyidhI8XOAX8_hL0UF_5iKcaPZAx7NcaMl-JfQ56qlu-Xtf4U2N-sjkTIHnTLhomPH2r_ov89CVEUXIBJtlBpJNELeHWV2a9SeVq1p8YKwwWOkdhZ8Pok-aN2R50H8qylWr7hNmMLwIXAb50EzOF6eca7jWcmYRJX4WjHD-nIKAHMMKdslC7a3Yx5BwTs69Euxm_TbBpyPbiMeCdZr_1f-tIfWv7o3akiQqI51wWsJUGS9vQXVEnqDMDDFDnfNZlNG7xNV9GHbTvN9vo.noC5ZIZGTzBtMWcuRT4pFPOwpNqkCiyMsX2XJDTSSwg&dib_tag=se&keywords=clothes&qid=1781543047&sprefix=%2Caps%2C415&sr=8-3&th=1&psc=1",
+    "product_name": "Amazon Product (Dataset Analysis)",
+    "platform": "Amazon",
+    "trust_score": 54.5,
+    "fake_count": 91,
+    "total_reviews": 200,
+    "fake_pct": 45.5,
+    "risk_level": "MEDIUM",
+    "tags": [
+      "ALL_CAPS_SHOUTING",
+      "HIGH_FAKE_PROBABILITY",
+      "AUTHOR_VELOCITY_ABUSE",
+      "REPEATED_PHRASES",
+      "SENTIMENT_MISMATCH"
+    ],
+    "ts": "2026-06-15T17:04:09.288010"
+  },
+  {
+    "id": 14,
+    "product_url": "https://www.amazon.com/ANRABESS-Shorts-Gingham-Pajama-Bottoms/dp/B0DK89638J/ref=sr_1_3?crid=1H85XJJ9UQYAX&dib=eyJ2IjoiMSJ9.kklslhHWyV0HpGEho8oppxlkxRpEyidhI8XOAX8_hL0UF_5iKcaPZAx7NcaMl-JfQ56qlu-Xtf4U2N-sjkTIHnTLhomPH2r_ov89CVEUXIBJtlBpJNELeHWV2a9SeVq1p8YKwwWOkdhZ8Pok-aN2Rxy47yhvZ7N1mLjt-1yZ7YAI6KnRgIF2mPxfoktkiYkFD-nIKAHMMKdslC7a3Yx5BwTs69Euxm_TbBpyPbiMeCfJRSrtLgiVNcMcpp1SUGiOkQJnpPyPLsytV3hTlai-_znfNZlNG7xNV9GHbTvN9vo.Yc-fvrDO0ZulnyLgqYpq-BffA_N9KAex6weuQ09tWZA&dib_tag=se&keywords=clothes&qid=1781542058&sprefix=clothes%2Caps%2C420&sr=8-3&th=1&psc=1",
+    "product_name": "ANRABESS Boxer Shorts for Women Gingham Pajama 2026 Summer Casual Lounge Sleep Plaid Shorts Y2K Beach Bottoms",
+    "platform": "Amazon",
+    "trust_score": 87.5,
+    "fake_count": 10,
+    "total_reviews": 80,
+    "fake_pct": 12.5,
+    "risk_level": "LOW",
+    "tags": [
+      "HIGH_SIMILARITY_CLONE",
+      "AUTHOR_VELOCITY_ABUSE",
+      "REPEATED_PHRASES",
+      "EXACT_DUPLICATE",
+      "Price Manipulation Detected"
+    ],
+    "ts": "2026-06-15T16:50:56.148481"
+  },
+  {
+    "id": 13,
+    "product_url": "https://www.amazon.com/ANRABESS-Shorts-Gingham-Pajama-Bottoms/dp/B0DK89638J/ref=sr_1_3?crid=1H85XJJ9UQYAX&dib=eyJ2IjoiMSJ9.kklslhHWyV0HpGEho8oppxlkxRpEyidhI8XOAX8_hL0UF_5iKcaPZAx7NcaMl-JfQ56qlu-Xtf4U2N-sjkTIHnTLhomPH2r_ov89CVEUXIBJtlBpJNELeHWV2a9SeVq1p8YKwwWOkdhZ8Pok-aN2Rxy47yhvZ7N1mLjt-1yZ7YAI6KnRgIF2mPxfoktkiYkFD-nIKAHMMKdslC7a3Yx5BwTs69Euxm_TbBpyPbiMeCfJRSrtLgiVNcMcpp1SUGiOkQJnpPyPLsytV3hTlai-_znfNZlNG7xNV9GHbTvN9vo.Yc-fvrDO0ZulnyLgqYpq-BffA_N9KAex6weuQ09tWZA&dib_tag",
+    "product_name": "ANRABESS Boxer Shorts for Women Gingham Pajama 2026 Summer Casual Lounge Sleep Plaid Shorts Y2K Beach Bottoms",
+    "platform": "Amazon",
+    "trust_score": 87.5,
+    "fake_count": 10,
+    "total_reviews": 80,
+    "fake_pct": 12.5,
+    "risk_level": "LOW",
+    "tags": [
+      "HIGH_SIMILARITY_CLONE",
+      "AUTHOR_VELOCITY_ABUSE",
+      "REPEATED_PHRASES",
+      "EXACT_DUPLICATE",
+      "Price Manipulation Detected"
+    ],
+    "ts": "2026-06-15T16:48:57.793845"
+  },
+  {
+    "id": 12,
+    "product_url": "https://www.amazon.in/Highlander-Cotton-Shirt-PHSH000014_LT-White/dp/B0F47TMBNT/ref=sr_1_6?sr=8-6&psc=1",
+    "product_name": "Highlander Men's Cotton Slim Fit Checks Shirt | Full Sleeves | Regular Collar | Casual Shirts for Men",
+    "platform": "Amazon",
+    "trust_score": 87.5,
+    "fake_count": 10,
+    "total_reviews": 80,
+    "fake_pct": 12.5,
+    "risk_level": "LOW",
+    "tags": [
+      "AUTHOR_VELOCITY_ABUSE",
+      "SUSPICIOUSLY_SHORT",
+      "SENTIMENT_MISMATCH",
+      "EXACT_DUPLICATE",
+      "HIGH_SIMILARITY_CLONE"
+    ],
+    "ts": "2026-06-11T18:26:54.888423"
+  },
+  {
+    "id": 11,
+    "product_url": "https://www.amazon.in/DEELMO-Stylish-Button-Down-Comfortable-Breathable/dp/B0FXRRV8W2/ref=sr_1_6?s=apparel&sr=1-6&psc=1",
+    "product_name": "Amazon Product",
+    "platform": "Amazon",
+    "trust_score": 100.0,
+    "fake_count": 0,
+    "total_reviews": 80,
+    "fake_pct": 0.0,
+    "risk_level": "LOW",
+    "tags": [
+      "EXACT_DUPLICATE",
+      "SUSPICIOUSLY_SHORT",
+      "AUTHOR_VELOCITY_ABUSE",
+      "HIGH_SIMILARITY_CLONE"
+    ],
+    "ts": "2026-06-11T18:14:20.437909"
+  },
+  {
+    "id": 10,
+    "product_url": "https://www.amazon.in/TURN-Casual-Striped-Shirt-Light/dp/B0CBX5KCN9/ref=sr_1_5?s=apparel&sr=1-5&psc=1#customerReviews",
+    "product_name": "Amazon Product",
+    "platform": "Amazon",
+    "trust_score": 100.0,
+    "fake_count": 0,
+    "total_reviews": 80,
+    "fake_pct": 0.0,
+    "risk_level": "LOW",
+    "tags": [
+      "REPEATED_PHRASES",
+      "HIGH_SIMILARITY_CLONE",
+      "SUSPICIOUSLY_SHORT",
+      "AUTHOR_VELOCITY_ABUSE",
+      "EXACT_DUPLICATE"
+    ],
+    "ts": "2026-06-11T18:12:16.295292"
+  },
+  {
+    "id": 9,
+    "product_url": "https://www.amazon.in/TURN-Casual-Striped-Shirt-Light/dp/B0CBX5KCN9/ref=sr_1_5?s=apparel&sr=1-5&psc=1",
+    "product_name": "Amazon Product",
+    "platform": "Amazon",
+    "trust_score": 100.0,
+    "fake_count": 0,
+    "total_reviews": 80,
+    "fake_pct": 0.0,
+    "risk_level": "LOW",
+    "tags": [
+      "REPEATED_PHRASES",
+      "HIGH_SIMILARITY_CLONE",
+      "SUSPICIOUSLY_SHORT",
+      "AUTHOR_VELOCITY_ABUSE",
+      "EXACT_DUPLICATE"
+    ],
+    "ts": "2026-06-11T18:06:39.362947"
+  },
+  {
+    "id": 8,
+    "product_url": "https://www.amazon.in/TURN-Casual-Striped-Shirt-Light/dp/B0CBX5KCN9/ref=sr_1_5?s=apparel&sr=1-5&psc=1",
+    "product_name": "Amazon Product",
+    "platform": "Amazon",
+    "trust_score": 100.0,
+    "fake_count": 0,
+    "total_reviews": 40,
+    "fake_pct": 0.0,
+    "risk_level": "LOW",
+    "tags": [
+      "HIGH_SIMILARITY_CLONE",
+      "REPEATED_PHRASES",
+      "AUTHOR_VELOCITY_ABUSE",
+      "SUSPICIOUSLY_SHORT",
+      "EXACT_DUPLICATE"
+    ],
+    "ts": "2026-06-11T17:59:59.510856"
+  },
+  {
+    "id": 7,
+    "product_url": "https://www.amazon.in/Raymond-Slim-Striped-Light-Shirt/dp/B0CSNLCD7S/ref=sr_1_1_sspa?s=apparel&sr=1-1-spons&aref=Uwv6UaROGT&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1",
+    "product_name": "Amazon Product (Dataset Analysis)",
+    "platform": "Amazon",
+    "trust_score": 49.0,
+    "fake_count": 102,
+    "total_reviews": 200,
+    "fake_pct": 51.0,
+    "risk_level": "HIGH",
+    "tags": [
+      "HIGH_SIMILARITY_CLONE",
+      "EXCESSIVE_EXCLAMATIONS",
+      "SYNDICATE_REVIEWER_PATTERN",
+      "REPEATED_PHRASES",
+      "SENTIMENT_MISMATCH"
+    ],
+    "ts": "2026-06-11T17:57:05.756141"
+  },
+  {
+    "id": 6,
+    "product_url": "https://www.amazon.in/Raymond-Slim-Striped-Light-Shirt/dp/B0CSNLCD7S",
+    "product_name": "Amazon Product (Dataset Analysis)",
+    "platform": "Amazon",
+    "trust_score": 53.5,
+    "fake_count": 93,
+    "total_reviews": 200,
+    "fake_pct": 46.5,
+    "risk_level": "MEDIUM",
+    "tags": [
+      "HIGH_SIMILARITY_CLONE",
+      "EXCESSIVE_EXCLAMATIONS",
+      "SYNDICATE_REVIEWER_PATTERN",
+      "REPEATED_PHRASES",
+      "SENTIMENT_MISMATCH"
+    ],
+    "ts": "2026-06-11T17:55:34.871135"
+  },
+  {
+    "id": 5,
+    "product_url": "https://www.amazon.in/Raymond-Slim-Striped-Light-Shirt/dp/B0CSNLCD7S/ref=sr_1_1_sspa?s=apparel&sr=1-1-spons&aref=Uwv6UaROGT&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1",
+    "product_name": "Amazon Product (Dataset Analysis)",
+    "platform": "Amazon",
+    "trust_score": 49.0,
+    "fake_count": 102,
+    "total_reviews": 200,
+    "fake_pct": 51.0,
+    "risk_level": "HIGH",
+    "tags": [
+      "SUSPICIOUSLY_SHORT",
+      "EXCESSIVE_EXCLAMATIONS",
+      "HIGH_SIMILARITY_CLONE",
+      "HIGH_FAKE_PROBABILITY",
+      "CAPS_OVERUSE"
+    ],
+    "ts": "2026-06-11T17:47:23.156815"
+  },
+  {
+    "id": 4,
+    "product_url": "https://www.amazon.in/Raymond-Slim-Striped-Light-Shirt/dp/B0CSNLCD7S/ref=sr_1_1_sspa?s=apparel&sr=1-1-spons&aref=Uwv6UaROGT&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1",
+    "product_name": "Amazon Product (Dataset Analysis)",
+    "platform": "Amazon",
+    "trust_score": 49.0,
+    "fake_count": 102,
+    "total_reviews": 200,
+    "fake_pct": 51.0,
+    "risk_level": "HIGH",
+    "tags": [
+      "CAPS_OVERUSE",
+      "SUPERLATIVE_OVERUSE",
+      "ALL_CAPS_SHOUTING",
+      "SYNDICATE_REVIEWER_PATTERN",
+      "HIGH_SIMILARITY_CLONE"
+    ],
+    "ts": "2026-06-11T17:26:57.890810"
+  },
+  {
+    "id": 3,
+    "product_url": "https://www.amazon.in/Raymond-Slim-Striped-Light-Shirt/dp/B0CSNLCD7S/ref=sr_1_1_sspa?s=apparel&sr=1-1-spons&aref=Uwv6UaROGT&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1",
+    "product_name": "Amazon Product (Dataset Analysis)",
+    "platform": "Amazon",
+    "trust_score": 49.0,
+    "fake_count": 102,
+    "total_reviews": 200,
+    "fake_pct": 51.0,
+    "risk_level": "HIGH",
+    "tags": [
+      "SUSPICIOUSLY_SHORT",
+      "HIGH_FAKE_PROBABILITY",
+      "CAPS_OVERUSE",
+      "REPEATED_PHRASES",
+      "ALL_CAPS_SHOUTING"
+    ],
+    "ts": "2026-06-11T17:15:52.103756"
+  },
+  {
+    "id": 2,
+    "product_url": "https://www.myntra.com/jumpsuit/globus/globus-v-cut--kimono-sleeves-waist-tie-up-longline-jumpsuit/24607056/buy",
+    "product_name": "Myntra Product (Dataset Analysis)",
+    "platform": "Myntra",
+    "trust_score": 49.5,
+    "fake_count": 101,
+    "total_reviews": 200,
+    "fake_pct": 50.5,
+    "risk_level": "HIGH",
+    "tags": [
+      "HIGH_SIMILARITY_CLONE",
+      "HIGH_FAKE_PROBABILITY",
+      "SUSPICIOUSLY_SHORT",
+      "SENTIMENT_MISMATCH",
+      "EXACT_DUPLICATE"
+    ],
+    "ts": "2026-06-09T18:30:07.399655"
+  },
+  {
+    "id": 1,
+    "product_url": "https://www.amazon.in/Babydoll-Lingerie-Non-Padded-Honeymoon-Anniversary/dp/B0BQ3BWWDC/ref=sr_1_5?s=apparel&sr=1-5&psc=1",
+    "product_name": "Buy Polyester Lixxous P5 Babydoll Lingerie Sets/Babydoll Bik",
+    "platform": "Amazon",
+    "trust_score": 66.7,
+    "fake_count": 60,
+    "total_reviews": 180,
+    "fake_pct": 33.3,
+    "risk_level": "MEDIUM",
+    "tags": [
+      "HIGH_SIMILARITY_CLONE",
+      "SENTIMENT_MISMATCH",
+      "EXACT_DUPLICATE",
+      "REPEATED_PHRASES",
+      "SYNDICATE_REVIEWER_PATTERN"
+    ],
+    "ts": "2026-06-09T18:27:09.981499"
+  }
+]

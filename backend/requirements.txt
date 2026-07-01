@@ -1,0 +1,33 @@
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+pydantic>=2.9.0
+pandas>=2.2.2
+scikit-learn>=1.5.0
+numpy>=2.0.0
+textblob==0.17.1
+python-multipart>=0.0.9
+httpx>=0.27.0
+nltk==3.8.1
+joblib>=1.4.0
+cloudscraper==1.2.71
+tldextract>=5.1.2
+beautifulsoup4>=4.12.3
+vaderSentiment==3.3.2
+requests>=2.31.0
+lxml>=5.2.0
+reportlab>=4.0.0
+python-dotenv>=1.0.0
+imbalanced-learn>=0.12.0
+# ── Image Processing (shared) ─────────────────────────────────
+Pillow>=10.0.0
+opencv-python>=4.8.0
+
+# ── YOLOv8 Damage Detector ────────────────────────────────────
+# Used by backend/damage_detector/ — train.py and inference.py
+# NOTE: tensorflow and tf_keras have been removed (Teachable Machine model
+#       is deprecated; see backend/engine/image_forensics.py for details)
+ultralytics>=8.0.0
+
+# ── Authentication ───────────────────────────────────────────────
+python-jose[cryptography]>=3.3.0
+passlib[bcrypt]>=1.7.4

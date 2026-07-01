@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrustGuard AI</title>
+  <link rel="stylesheet" href="popup.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        </svg>
+        <span>TrustGuard AI</span>
+      </div>
+      <div class="pulse hidden" id="pulseIndicator"></div>
+    </div>
+
+    <!-- Idle / Fetching State -->
+    <div id="loadingState" class="state-container">
+      <div class="bot-icon">🤖</div>
+      <h3 id="statusText">Ready to Scan</h3>
+      <p id="subText" class="sub-text">Click below to analyze this product's reviews for bot manipulation.</p>
+      <button id="scanBtn" class="btn btn-primary">Scan Current Page</button>
+    </div>
+
+    <!-- Results State -->
+    <div id="resultState" class="state-container hidden">
+      <div class="score-ring">
+        <div class="score-circle" id="scoreRing">
+          <div class="score-text" id="trustScore">85</div>
+        </div>
+      </div>
+      
+      <div class="badge" id="riskBadge">LOW RISK</div>
+      
+      <div class="verdict-card" id="verdictCard">
+        <h4 id="recommendation">SAFE TO BUY</h4>
+        <p id="productName" class="product-name">Amazon Product</p>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat">
+          <span class="stat-val" id="fakeCount">0</span>
+          <span class="stat-label">Fake</span>
+        </div>
+        <div class="stat">
+          <span class="stat-val" id="botProb">0%</span>
+          <span class="stat-label">Bot Prob</span>
+        </div>
+        <div class="stat">
+          <span class="stat-val" id="pagesScanned">0</span>
+          <span class="stat-label">Pages</span>
+        </div>
+      </div>
+      
+      <div style="display: flex; gap: 8px; width: 100%; margin-top: 15px;">
+        <button id="resetBtn" class="btn btn-secondary" style="flex: 1;">Scan New</button>
+        <button id="viewReportBtn" class="btn btn-primary" style="flex: 1.5; background: var(--purple); color: white;">Full Report</button>
+      </div>
+    </div>
+
+    <div id="errorState" class="hidden" style="margin-top: 20px; text-align: center; color: var(--red);">
+      <p id="errorMsg" style="font-size: 13px;"></p>
+      <button id="retryBtn" class="btn btn-secondary" style="margin-top: 10px;">Retry</button>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

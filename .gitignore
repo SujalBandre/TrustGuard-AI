@@ -1,0 +1,68 @@
+# TrustGuard AI — Root .gitignore
+# ─────────────────────────────────────────────────────────────
+
+# ── Python ────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+*.so
+.env
+.venv/
+env/
+venv/
+.eggs/
+
+# ── Dataset images (large, user-supplied — do NOT commit) ─────
+# Keep folder structure (.gitkeep) and data.yaml, ignore images+labels
+dataset/train/images/*
+!dataset/train/images/.gitkeep
+dataset/train/labels/*
+!dataset/train/labels/.gitkeep
+
+dataset/valid/images/*
+!dataset/valid/images/.gitkeep
+dataset/valid/labels/*
+!dataset/valid/labels/.gitkeep
+
+dataset/test/images/*
+!dataset/test/images/.gitkeep
+dataset/test/labels/*
+!dataset/test/labels/.gitkeep
+
+# YOLO auto-generated run folders (timestamped training outputs)
+runs/
+
+# ── YOLOv8 saved model weights (.pt files are large binaries) ─
+*.pt
+# Keep the folder itself (.gitkeep tracked), ignore weight files
+backend/damage_detector/saved_models/*.pt
+
+# ── Legacy Teachable Machine model weights (if present) ───────
+backend/models/keras_model.h5
+backend/models/labels.txt
+
+# ── Logs ──────────────────────────────────────────────────────
+backend/logs/*.log
+*.log
+
+# ── Database ──────────────────────────────────────────────────
+backend/data/*.db
+
+# ── Node / Frontend ───────────────────────────────────────────
+node_modules/
+frontend/dist/
+frontend/.env
+
+# ── IDE ───────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
