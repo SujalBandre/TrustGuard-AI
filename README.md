@@ -4,8 +4,6 @@ Fake Review Intelligence Platform and E-commerce Defense Ecosystem.
 
 ## Overview
 
-## Overview
-
 TrustGuard AI is a full-stack research prototype designed to analyze fake reviews, opinion manipulation, and related e-commerce fraud risks. It combines a hybrid NLP ensemble, behavioral and temporal heuristics, URL security screening, and a YOLOv8-based garment damage-claim verifier into a unified platform.
 
 The system provides a React dashboard, FastAPI backend, Chrome extension, and role-based workflow for consumers, administrators, analysts, and platform owners.
