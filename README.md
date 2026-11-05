@@ -4,7 +4,18 @@ Fake Review Intelligence Platform and E-commerce Defense Ecosystem.
 
 ## Overview
 
-TrustGuard AI is an end-to-end, production-grade platform designed to detect and mitigate fake reviews, opinion manipulation, review bombing, and reputation hijacking on global e-commerce platforms like Amazon, Flipkart, eBay, and Walmart. The system combines a Hybrid Ensemble NLP model, multi-layer behavioral forensics, real-time web scraping, a YOLOv8 damage-claim image classifier, a React dashboard, and a Chrome extension into a single cohesive ecosystem. It serves consumers seeking to verify product authenticity, and administrators seeking to protect their platform's integrity.
+## Overview
+
+TrustGuard AI is a full-stack research prototype designed to analyze fake reviews, opinion manipulation, and related e-commerce fraud risks. It combines a hybrid NLP ensemble, behavioral and temporal heuristics, URL security screening, and a YOLOv8-based garment damage-claim verifier into a unified platform.
+
+The system provides a React dashboard, FastAPI backend, Chrome extension, and role-based workflow for consumers, administrators, analysts, and platform owners.
+
+TrustGuard AI generates a multi-factor Trust Score (0–100), risk indicators, and supporting evidence. The NLP classifier is evaluated on a held-out review dataset, while behavioral, temporal, and fused product-level scores remain heuristic and have not been independently validated against product-level ground truth.
+
+Live review acquisition is implemented for Amazon and Flipkart. Other supported marketplace URLs may use a local dataset fallback for demonstration. The damage-claim verifier is intended as an advisory triage tool and does not make automatic refund decisions.
+
+The platform is a research prototype and should not be considered production-ready.
+
 
 ## Features
 
