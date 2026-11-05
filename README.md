@@ -1,234 +1,481 @@
 # TrustGuard AI
 
-Fake Review Intelligence Platform and E-commerce Defense Ecosystem.
+### AI-Powered Fake Review, Opinion Manipulation and E-Commerce Trust Analysis
+
+TrustGuard AI is a full-stack research prototype that analyzes fake reviews, suspicious user behavior, opinion manipulation, and e-commerce damage-claim risks. It combines machine-learning-based review classification with behavioral and temporal indicators to provide explainable risk insights.
+
+> **Research Disclaimer:** TrustGuard AI is a research prototype, not a production-ready fraud detection or refund-decision system. Its Trust Score is an evidence-based heuristic indicator, not a calibrated probability of fraud.
+
+---
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Key Features](#key-features)
+- [System Architecture](#system-architecture)
+- [Technology Stack](#technology-stack)
+- [Machine Learning Models](#machine-learning-models)
+- [Evaluation Results](#evaluation-results)
+- [Trust Score Calculation](#trust-score-calculation)
+- [Chrome Extension](#chrome-extension)
+- [API Endpoints](#api-endpoints)
+- [Installation and Setup](#installation-and-setup)
+- [Project Structure](#project-structure)
+- [Limitations](#limitations)
+- [Security Considerations](#security-considerations)
+- [Future Scope](#future-scope)
+- [License](#license)
+
+---
 
 ## Overview
 
-TrustGuard AI is a full-stack research prototype designed to analyze fake reviews, opinion manipulation, and related e-commerce fraud risks. It combines a hybrid NLP ensemble, behavioral and temporal heuristics, URL security screening, and a YOLOv8-based garment damage-claim verifier into a unified platform.
+Online marketplaces rely heavily on customer reviews and ratings. However, fake reviews, coordinated manipulation, bot-generated comments, and misleading product information can affect consumer trust and purchasing decisions.
 
-The system provides a React dashboard, FastAPI backend, Chrome extension, and role-based workflow for consumers, administrators, analysts, and platform owners.
+TrustGuard AI aims to help users identify potentially suspicious reviews and assess product credibility through multiple signals.
 
-TrustGuard AI generates a multi-factor Trust Score (0–100), risk indicators, and supporting evidence. The NLP classifier is evaluated on a held-out review dataset, while behavioral, temporal, and fused product-level scores remain heuristic and have not been independently validated against product-level ground truth.
+The platform includes:
 
-Live review acquisition is implemented for Amazon and Flipkart. Other supported marketplace URLs may use a local dataset fallback for demonstration. The damage-claim verifier is intended as an advisory triage tool and does not make automatic refund decisions.
+- A React-based dashboard for review and product analysis.
+- A FastAPI backend for analysis and API services.
+- A hybrid NLP ensemble for review classification.
+- Behavioral and temporal risk indicators.
+- URL security screening.
+- A YOLOv8-based garment damage-claim verification module.
+- A Chrome extension for extracting reviews from supported marketplace pages.
+- Role-based workflows for consumers, analysts, administrators, and platform owners.
 
-The platform is a research prototype and should not be considered production-ready.
+Live review extraction is implemented for **Amazon and Flipkart**. Other marketplace URLs may use local dataset fallback for demonstration and analysis.
 
+---
 
-## Features
+## Key Features
 
-- **TrustBuy Analyzer**: Consumer-facing portal to paste any product URL or text for a comprehensive Multi-Factor Trust Score (0–100%) and Verdict Cards.
-- **Mission Control**: Admin command center featuring a real-time WebSocket intelligence feed, ML performance metrics, and a one-click retraining pipeline.
-- **Network Forensics**: Visual force-directed bipartite graph (React Force Graph 2D) uncovering review syndicates and coordinated botnets.
-- **Reputation Management**: Strategic brand health tracking, 12-month trust trends, sentiment distribution, and linguistic mimicry detection.
-- **Damage Claim Verifier**: YOLOv8 image-based classification for insurance/refund fraud (classifies images as `fake_damage` or `real_damage`).
-- **Analyst Panel**: Dedicated workspace for data analysts to process deep-analysis requests and submit structured reports.
-- **Chrome Extension**: Manifest V3 extension providing live risk badges and bypassing anti-bot measures via direct DOM injection scanning.
-- **URL Security Engine**: 9-layer heuristic URL threat classifier (phishing, typosquatting, risky TLDs).
+### 1. Fake Review Detection
 
-## Architecture
+Analyzes review text to classify potentially fake or genuine reviews using a hybrid NLP ensemble.
 
-The system operates on a decoupled client-server architecture with multi-source data ingestion and a robust machine learning pipeline.
+Features include:
+
+- TF-IDF-based text representation.
+- Word-level and character-level features.
+- Handcrafted linguistic features.
+- Ensemble classification.
+- Review-level risk indicators.
+
+### 2. Behavioral Analysis
+
+Analyzes review-related behavioral indicators, including:
+
+- Duplicate or highly similar reviews.
+- Suspicious review patterns.
+- Reviewer activity indicators.
+- Potentially unusual author behavior.
+
+Behavioral signals are heuristic indicators and should not be interpreted as confirmed evidence of fraud.
+
+### 3. Temporal Analysis
+
+Identifies potentially suspicious review activity patterns, such as:
+
+- Sudden increases in review activity.
+- Unusual review bursts.
+- Temporal patterns that may warrant further investigation.
+
+Temporal signals are heuristic and require independent validation against labeled product-level data.
+
+### 4. Product Trust Analysis
+
+Combines review classification and additional risk indicators to provide a product-level Trust Score and supporting evidence.
+
+The score is intended to support investigation and decision-making. It is not a verified fraud probability.
+
+### 5. URL Security Screening
+
+Screens submitted URLs using multiple security checks to identify potentially unsafe or suspicious links.
+
+The result is a screening indicator and should not be treated as a guarantee that a URL is safe.
+
+### 6. Damage-Claim Verification
+
+Uses a YOLOv8-based model to analyze uploaded garment images for damage-related indicators.
+
+The module is designed for **advisory triage only**. It must not automatically approve or reject refunds.
+
+### 7. Chrome Extension
+
+The extension extracts review information from supported Amazon and Flipkart product pages and displays an in-page risk indicator.
+
+It is intended to assist users while browsing supported marketplace pages.
+
+### 8. Dashboard and Role-Based Workflows
+
+The dashboard provides analysis views and workflows for different user roles:
+
+- Consumer
+- Data Analyst
+- System Administrator
+- Platform Owner
+
+Role-based navigation is implemented in the frontend. See [Security Considerations](#security-considerations) for current backend authorization limitations.
+
+---
+
+## System Architecture
 
 ```mermaid
-graph TD
-    Client[React SPA] --> API[FastAPI Backend]
-    Ext[Chrome Extension] --> API
-    API --> Auth[JWT & Role Management]
-    API --> DetectionEngine[Detection Engine]
-    API --> DamageDetector[YOLOv8 Damage Verifier]
-    
-    DetectionEngine --> NLP[Hybrid Ensemble ML Model]
-    DetectionEngine --> Behavioral[Behavioral Forensics]
-    DetectionEngine --> Temporal[Temporal Analysis]
-    
-    DetectionEngine --> Scraper[Scraping Pipeline]
-    Scraper --> RapidAPI[RapidAPI]
-    Scraper --> Cloudscraper[HTML DOM Scraper]
-    Scraper --> Dataset[Fallback CSV Dataset]
+flowchart TD
+    A[Consumer / Analyst / Administrator] --> B[React Dashboard]
+    C[Chrome Extension] --> D[Marketplace Product Page]
+    B --> E[FastAPI Backend]
+    C --> E
+
+    E --> F[NLP Review Classifier]
+    E --> G[Behavioral Analysis]
+    E --> H[Temporal Analysis]
+    E --> I[URL Security Screening]
+    E --> J[YOLOv8 Damage Detector]
+
+    F --> K[Risk Indicators and Trust Score]
+    G --> K
+    H --> K
+
+    K --> L[Dashboard Results]
+    I --> L
+    J --> L
+
+    E --> M[SQLite / Local Data]
 ```
 
-## Tech Stack
+The system separates the user interface, backend APIs, analysis modules, and data storage.
 
-- **Python**
-- **FastAPI**
-- **React**
-- **Vite**
-- **scikit-learn**
-- **Ultralytics YOLOv8**
-- **SQLite**
-- **Tailwind CSS**
-- **pandas**
-- **numpy**
-- **TextBlob**
-- **VADER**
-- **BeautifulSoup4**
-- **cloudscraper**
-- **ReportLab**
-- **React Force Graph 2D**
+---
 
-## Installation
+## Technology Stack
+
+| Component | Technology |
+|---|---|
+| Frontend | React 18, Vite |
+| Styling | Tailwind CSS |
+| UI Animation | Framer Motion |
+| Backend | Python, FastAPI |
+| NLP | Scikit-learn, TF-IDF |
+| NLP Models | Logistic Regression, SGD Classifier, Multinomial Naive Bayes |
+| Computer Vision | YOLOv8 |
+| Database | SQLite |
+| Browser Extension | Chrome Extension, Manifest V3 |
+| API Communication | REST API |
+
+---
+
+## Machine Learning Models
+
+### NLP Review Classification
+
+The review classifier uses a hybrid feature representation consisting of:
+
+- **15,000 word-level TF-IDF features**
+- **8,000 character-level TF-IDF features**
+- **8 handcrafted features**
+
+This produces a combined feature representation of 23,008 features.
+
+The ensemble includes:
+
+| Model | Description |
+|---|---|
+| Logistic Regression | Linear classification model |
+| SGD Classifier | Stochastic gradient-based classifier |
+| Multinomial Naive Bayes | Probabilistic text classifier |
+
+The ensemble uses a weighted voting configuration:
+
+- Logistic Regression: 4
+- SGD Classifier: 2
+- Multinomial Naive Bayes: 1
+
+These are implementation-level ensemble weights, not learned or calibrated fraud probabilities.
+
+### Damage Detection Model
+
+The damage-claim module uses a YOLOv8-based object detection model to analyze garment images.
+
+The model is intended to identify damage-related visual indicators. Its performance is limited and should be considered experimental.
+
+---
+
+## Evaluation Results
+
+### NLP Review Classification
+
+The NLP classifier was evaluated on a held-out review dataset.
+
+| Metric | Result |
+|---|---:|
+| Accuracy | 84.09% |
+| Precision | 84.82% |
+| Recall | 79.70% |
+| F1-Score | 82.18% |
+| ROC-AUC | 91.11% |
+| PR-AUC | 91.78% |
+
+**Dataset:** 46,548 review samples  
+**Split:** 80% training and 20% testing
+
+These results describe the review-text classification model only. They do not represent the overall performance of the complete TrustGuard AI platform.
+
+### Damage Detection Evaluation
+
+| Metric | Result |
+|---|---:|
+| mAP@0.5 | 22.07% |
+| Fake Damage Recall | 45.16% |
+| Real Damage Recall | 6.25% |
+
+The damage detector has limited performance, particularly for real-damage detection. It should be used only for experimental analysis and advisory triage.
+
+The results should not be used as the sole basis for refund approval, refund rejection, or other financial decisions.
+
+---
+
+## Trust Score Calculation
+
+TrustGuard AI combines several signals to generate a product-level Trust Score.
+
+The implemented design uses the following weights:
+
+| Signal | Weight |
+|---|---:|
+| NLP Review Analysis | 40% |
+| Behavioral Analysis | 30% |
+| Temporal Analysis | 30% |
+
+Conceptually:
+
+```text
+Trust Score =
+    NLP Signal       × 0.40
+  + Behavioral Signal × 0.30
+  + Temporal Signal   × 0.30
+```
+
+The score is intended to summarize risk indicators for review and investigation.
+
+**Important:** The weighting configuration is heuristic. Behavioral, temporal, and fused product-level scores have not been independently validated against labeled product-level ground truth. Therefore, the score must not be interpreted as a statistically calibrated probability of fraud.
+
+---
+
+## Chrome Extension
+
+TrustGuard AI includes a Chrome extension built using Manifest V3.
+
+### Intended Workflow
+
+1. Open a supported Amazon or Flipkart product page.
+2. The extension extracts review information from the page DOM.
+3. Extracted reviews are submitted for analysis.
+4. The backend returns analysis results.
+5. The extension displays an in-page risk indicator.
+
+The extension supports review extraction from Amazon and Flipkart. Marketplace DOM structures may change, which can affect extraction reliability.
+
+---
+
+## API Endpoints
+
+The backend exposes analysis endpoints including:
+
+| Endpoint | Purpose |
+|---|---|
+| `/api/review/analyze` | Review analysis |
+| `/api/bot/analyze` | Bot or suspicious behavior analysis |
+| `/api/image/analyze` | Image-related analysis |
+
+The exact request and response schemas should be checked in the backend implementation.
+
+---
+
+## Installation and Setup
 
 ### Prerequisites
-- Python 3.9+
-- Node.js 18+
 
-### Backend Setup
-1. Clone the repository and navigate to the `backend` directory.
-2. Install Python dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Download required NLTK corpora:
-   ```bash
-   python -c "import nltk; nltk.download('stopwords'); nltk.download('wordnet')"
-   ```
-4. Train the ML model (required before first run):
-   ```bash
-   python -m backend.train_model
-   ```
+Install the following before running the project:
 
-### Frontend Setup
-1. Navigate to the `frontend` directory.
-2. Install Node dependencies:
-   ```bash
-   npm install
-   ```
+- Python 3.10 or compatible version required by the project dependencies
+- Node.js and npm
+- Git
+- Google Chrome, if using the extension
 
-### Chrome Extension Setup
-1. Open Chrome and navigate to `chrome://extensions/`.
-2. Enable **Developer Mode**.
-3. Click **Load Unpacked** and select the `extension/` folder.
+### 1. Clone the Repository
 
-## Configuration
-
-Required environment variables should be placed in `backend/.env`:
-
-- `RAPIDAPI_KEY` (Optional): API key for live Amazon/Flipkart review fetching via RapidAPI. If omitted, the system falls back to direct HTML scraping and dataset fallbacks.
-- `RAINFOREST_API_KEY` (Optional): Alternative Amazon product data API key.
-
-## Running
-
-### Development
-
-We provide unified startup scripts in the root directory.
-
-**Windows:**
-```bat
-start.bat
-```
-**Linux / macOS:**
 ```bash
-chmod +x start.sh
-./start.sh
+git clone <YOUR_GITHUB_REPOSITORY_URL>
+cd TrustGuard-AI
 ```
 
-Alternatively, start them separately:
-- **Backend:** `uvicorn backend.api.main:app --host 0.0.0.0 --port 8001 --reload`
-- **Frontend:** `npm run dev` (runs on http://localhost:5173)
+Replace `<YOUR_GITHUB_REPOSITORY_URL>` with the repository URL.
 
-### Training
+### 2. Set Up the Backend
 
-To manually retrain the hybrid ensemble NLP model:
 ```bash
 cd backend
-python -m backend.train_model
+python -m venv venv
 ```
-To train the YOLOv8 Damage Detector:
+
+Activate the virtual environment.
+
+**Windows:**
+
 ```bash
-python -m backend.damage_detector.train
+venv\Scripts\activate
 ```
 
-## API
+**Linux / macOS:**
 
-### Core Endpoints
+```bash
+source venv/bin/activate
+```
 
-| Method | Path | Purpose | Authentication |
-|---|---|---|---|
-| `POST` | `/api/auth/login` | Authenticate and retrieve JWT token | Public |
-| `POST` | `/api/analyze` | Full product analysis via URL or text | Protected (User/Admin) |
-| `POST` | `/analyze-batch` | Bulk review analysis | Protected |
-| `WS`   | `/ws/live-analysis` | WebSocket stream for live bot interceptions | Protected (Admin) |
-| `POST` | `/api/damage-detector/predict` | Classify image for damage fraud | Protected |
-| `POST` | `/api/check-url` | Run 9-layer heuristic URL security check | Public |
+Install the backend dependencies:
 
-## Folder Structure
+```bash
+pip install -r requirements.txt
+```
+
+Create the required environment configuration using the project's environment template, if available.
+
+Start the FastAPI server using the backend's actual application entry point. For example, if the application is defined in `main.py` as `app`:
+
+```bash
+uvicorn main:app --reload
+```
+
+If the entry-point file or application variable has a different name, use the corresponding module path.
+
+### 3. Set Up the Frontend
+
+Open a new terminal:
+
+```bash
+cd frontend
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Open the local URL printed by Vite in the terminal.
+
+### 4. Load the Chrome Extension
+
+1. Open Chrome.
+2. Navigate to `chrome://extensions`.
+3. Enable **Developer mode**.
+4. Click **Load unpacked**.
+5. Select the Chrome extension directory from the repository.
+6. Open a supported Amazon or Flipkart product page to test the extension.
+
+---
+
+## Project Structure
+
+The project is organized into frontend, backend, extension, and supporting resources.
 
 ```text
 TrustGuard-AI/
+│
 ├── backend/
-│   ├── api/                 # FastAPI routes and schemas
-│   ├── auth/                # JWT authentication and SQLite DB setup
-│   ├── damage_detector/     # YOLOv8 inference, training, and models
-│   ├── data/                # Fallback datasets and training data
-│   ├── engine/              # Core NLP, scraping, and detection logic
-│   └── models/              # Serialized scikit-learn models (.joblib)
-├── dataset/                 # Raw YOLOv8 images and labels (train/valid/test)
-├── extension/               # Chrome Manifest V3 extension source code
-└── frontend/
-    └── src/
-        ├── components/      # Reusable React components (Charts, Tables)
-        └── pages/           # Main route views (TrustBuy, MissionControl, etc.)
+│   ├── data/
+│   ├── logs/
+│   ├── models/
+│   ├── requirements.txt
+│   └── ...
+│
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   ├── package.json
+│   └── ...
+│
+├── extension/
+│   ├── manifest.json
+│   └── ...
+│
+├── README.md
+└── ...
 ```
 
-## Workflow
+Some directories and files may vary depending on the current repository version.
 
-1. **User Input:** A user or the Chrome Extension submits a product URL or raw text to the FastAPI backend.
-2. **Data Acquisition:** The scraper pipeline attempts RapidAPI; falls back to `cloudscraper`; and finally falls back to a deterministic subset of a static dataset if blocked.
-3. **Detection Engine:** The text data passes through a Hybrid Ensemble model (Logistic Regression + SGD + Naive Bayes), backed by temporal review-burst analysis and behavioral duplication checks.
-4. **Result Delivery:** A structured JSON response containing the Multi-Factor Trust Score, Risk Level, and linguistic evidence is returned to the frontend.
-5. **Admin Monitoring:** Admins monitor real-time WebSocket feeds of processed reviews in the Mission Control dashboard.
+---
 
-## Data Flow
+## Limitations
 
-```mermaid
-sequenceDiagram
-    participant User/Ext as Frontend / Extension
-    participant API as FastAPI Backend
-    participant Scraper as Scraper Engine
-    participant ML as HybridEnsemble Model
-    
-    User/Ext->>API: POST /api/analyze {url}
-    API->>Scraper: Fetch Reviews (RapidAPI -> HTML -> Fallback)
-    Scraper-->>API: List[Review]
-    API->>ML: Extract Word/Char TF-IDF + Numerics
-    ML-->>API: Probability Scores
-    API->>API: Combine w/ Behavioral & Temporal signals
-    API-->>User/Ext: Multi-Factor Trust Score & Verdict
-```
+TrustGuard AI is an academic research prototype and has several limitations:
 
-## Models
+- Live review extraction is implemented for Amazon and Flipkart; other marketplaces may use local dataset fallback.
+- Dataset fallback results should not be interpreted as live marketplace analysis.
+- Generated or fallback review metadata may be illustrative.
+- Behavioral and temporal indicators are heuristic.
+- Product-level Trust Scores have not been validated against independent product-level ground truth.
+- Some dashboard statistics and reputation or price-history visualizations may use simulated or placeholder data.
+- The damage detector has limited evaluation performance, particularly for real-damage detection.
+- Image-based damage detection may be affected by image quality, dataset bias, and differences between training and real-world images.
+- The system does not establish that a reviewer, review, product, or seller is fraudulent.
+- Marketplace website changes may break review extraction.
+- The platform has not undergone a complete production security audit.
 
-### 1. NLP Trust Classifier
-- **Datasets:** 46,548 samples (21,423 fake, 25,125 real) from `fake_reviews_dataset.csv` and `final_labeled_fake_reviews.csv`.
-- **Preprocessing:** Regex cleanup, negation-preserving stopword removal, WordNet lemmatization.
-- **Features:** Word TF-IDF (1-3 grams), Char TF-IDF (2-4 grams), 8 handcrafted numeric metrics.
-- **Architecture:** Soft Voting Ensemble (LR weight 4, SGD weight 2, NB weight 1).
-- **Evaluation:** 84.09% Accuracy, 91.11% ROC-AUC.
-- **Checkpoints:** Stored as `backend/models/lr_pipeline.joblib`.
+The system should be used for research, demonstration, and decision support—not as an autonomous fraud, refund, or reputation enforcement system.
 
-### 2. Damage Claim Verifier
-- **Architecture:** Ultralytics YOLOv8.
-- **Classes:** `fake_damage` (0), `real_damage` (1).
-- **Inference:** Confidence threshold of 0.25; returns bounding boxes.
-- **Checkpoints:** `backend/damage_detector/saved_models/damage_detector_best.pt`.
+---
 
-## Troubleshooting
+## Security Considerations
 
-- **Dataset Not Found during Training:** Ensure you have placed `fake_reviews_dataset.csv` inside `backend/data/`.
-- **Model Load Errors (503):** The API requires models to exist at startup. You MUST run `python -m backend.train_model` before starting the backend.
-- **RapidAPI 403 Forbidden:** Ensure you are subscribed to the "Real-Time Amazon Data" API on RapidAPI and your key is properly set in `backend/.env`.
-- **No Reviews Scraped:** If no API key is set, Amazon may block the HTML scraper. The system will safely fallback to dataset sampling, meaning the UI will still function for demonstration purposes.
+Before deploying TrustGuard AI beyond a local research environment:
 
-## Contributing
+- Replace default or fallback JWT secrets with strong environment-specific secrets.
+- Remove or disable seeded demonstration accounts.
+- Enforce authorization checks on every protected backend endpoint.
+- Do not rely only on frontend role-based navigation for access control.
+- Review file-upload validation and size restrictions.
+- Avoid committing `.env` files, credentials, private datasets, or model artifacts.
+- Configure CORS and network access appropriately.
+- Use HTTPS for network-accessible deployments.
+- Perform a security review before exposing the backend publicly.
 
-1. Fork the repository.
-2. Create a feature branch (`git checkout -b feature/NewFeature`).
-3. Commit your changes (`git commit -m 'Add NewFeature'`).
-4. Push to the branch (`git push origin feature/NewFeature`).
-5. Open a Pull Request.
+At the current implementation stage, server-side role and token checks are not uniformly enforced across all protected endpoints. The application should not be considered secure for public deployment without additional hardening.
+
+---
+
+## Future Scope
+
+Potential future improvements include:
+
+- Improving damage detection with larger and more diverse datasets.
+- Evaluating the complete system on independently labeled product-level data.
+- Calibrating and validating Trust Score outputs.
+- Improving marketplace review extraction reliability.
+- Expanding support for additional marketplaces.
+- Strengthening server-side authentication and authorization.
+- Replacing simulated dashboard statistics with validated real data.
+- Improving behavioral and temporal fraud detection.
+- Conducting broader security and performance testing.
+
+---
 
 ## License
 
-Research Project — Internal Use Only.
-Developed for Final Year Project submission, 2026.
+This project is an academic research project.
+
+If the repository is intended for restricted academic or internal use, specify the applicable usage terms here. Do not describe it as open-source unless an appropriate open-source license is added.
+
+---
+
+## Acknowledgment
+
+TrustGuard AI was developed as an academic project focused on fake review detection, opinion manipulation analysis, and e-commerce trust assessment.
+
+**TrustGuard AI — Towards More Transparent and Trustworthy E-Commerce.**
