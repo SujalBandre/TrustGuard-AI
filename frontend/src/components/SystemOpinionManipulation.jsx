@@ -47,53 +47,53 @@ export default function SystemOpinionManipulation({ data }) {
 
       {/* Stats row */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px', marginBottom: '24px' }}>
-        <div className="card" style={{ padding: '16px', borderTop: '3px solid #00D4FF' }}>
+        <div className="card" style={{ padding: '16px', borderTop: '3px solid var(--accent-primary)' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
             <div>
               <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>TOTAL ANALYZED</div>
-              <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#fff', margin: '4px 0' }}>{totalAnalyzed}</div>
+              <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#fff', margin: '4px 0', fontFamily: 'var(--font-mono)' }}>{totalAnalyzed}</div>
               <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>All scraped reviews</div>
             </div>
-            <div style={{ padding: '8px', borderRadius: '8px', background: 'rgba(0,212,255,0.1)', color: '#00D4FF' }}>
+            <div style={{ padding: '8px', borderRadius: '8px', background: 'var(--accent-dim)', color: 'var(--accent-primary)' }}>
               <Target size={20} />
             </div>
           </div>
         </div>
-
-        <div className="card" style={{ padding: '16px', borderTop: '3px solid #EF4444' }}>
+ 
+        <div className="card" style={{ padding: '16px', borderTop: '3px solid var(--accent-danger)' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
             <div>
               <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>FAKE DETECTED</div>
-              <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#fff', margin: '4px 0' }}>{fakeDetected}</div>
+              <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#fff', margin: '4px 0', fontFamily: 'var(--font-mono)' }}>{fakeDetected}</div>
               <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>{fakePct}% of total</div>
             </div>
-            <div style={{ padding: '8px', borderRadius: '8px', background: 'rgba(239,68,68,0.1)', color: '#EF4444' }}>
+            <div style={{ padding: '8px', borderRadius: '8px', background: 'rgba(229, 62, 62, 0.1)', color: 'var(--accent-danger)' }}>
               <AlertTriangle size={20} />
             </div>
           </div>
         </div>
-
-        <div className="card" style={{ padding: '16px', borderTop: '3px solid #F59E0B' }}>
+ 
+        <div className="card" style={{ padding: '16px', borderTop: '3px solid var(--accent-warning)' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
             <div>
               <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>BOT REVIEWS</div>
-              <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#fff', margin: '4px 0' }}>{fakeDetected}</div>
+              <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#fff', margin: '4px 0', fontFamily: 'var(--font-mono)' }}>{fakeDetected}</div>
               <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Same-author abuse</div>
             </div>
-            <div style={{ padding: '8px', borderRadius: '8px', background: 'rgba(245,158,11,0.1)', color: '#F59E0B' }}>
+            <div style={{ padding: '8px', borderRadius: '8px', background: 'rgba(217, 119, 6, 0.1)', color: 'var(--accent-warning)' }}>
               <Bot size={20} />
             </div>
           </div>
         </div>
-
-        <div className="card" style={{ padding: '16px', borderTop: '3px solid #7C3AED' }}>
+ 
+        <div className="card" style={{ padding: '16px', borderTop: '3px solid var(--accent-secondary)' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
             <div>
-              <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>HIGH RISK</div>
-              <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#fff', margin: '4px 0' }}>{highRiskCount}</div>
+              <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>SUSPICIOUS PHRASES</div>
+              <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#fff', margin: '4px 0', fontFamily: 'var(--font-mono)' }}>{topPhrases?.length || 0}</div>
               <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Requires immediate action</div>
             </div>
-            <div style={{ padding: '8px', borderRadius: '8px', background: 'rgba(124,58,237,0.1)', color: '#7C3AED' }}>
+            <div style={{ padding: '8px', borderRadius: '8px', background: 'rgba(124,58,237,0.1)', color: 'var(--accent-secondary)' }}>
               <TrendingDown size={20} />
             </div>
           </div>
@@ -201,10 +201,10 @@ export default function SystemOpinionManipulation({ data }) {
                     <span style={{ color: '#EF4444', fontWeight: 800, fontSize: '0.9rem' }}>{probPct}%</span>
                     <span style={{ color: '#EF4444', fontSize: '0.55rem', fontWeight: 700, letterSpacing: '0.05em' }}>FAKE</span>
                   </div>
-
+ 
                   <div style={{ flex: 1 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px', flexWrap: 'wrap' }}>
-                      <span style={{ display: 'flex', alignItems: 'center', gap: '4px', color: '#00D4FF', fontSize: '0.8rem', fontWeight: 600 }}>
+                      <span style={{ display: 'flex', alignItems: 'center', gap: '4px', color: 'var(--accent-primary)', fontSize: '0.8rem', fontWeight: 600 }}>
                         <User size={14} /> {rev.author || 'Anonymous'}
                       </span>
                       <span style={{ color: 'var(--text-muted)', fontSize: '0.75rem' }}>
@@ -216,7 +216,7 @@ export default function SystemOpinionManipulation({ data }) {
                       <span style={{ 
                         padding: '2px 8px', 
                         borderRadius: '100px', 
-                        background: rev.risk_level === 'HIGH' ? '#EF4444' : '#F59E0B', 
+                        background: rev.risk_level === 'HIGH' ? 'var(--accent-danger)' : 'var(--accent-warning)', 
                         color: '#fff', 
                         fontSize: '0.65rem', 
                         fontWeight: 700 
@@ -250,7 +250,7 @@ export default function SystemOpinionManipulation({ data }) {
 
       {activeTab === 'Phrase Analysis' && (
         <div className="card" style={{ padding: '20px' }}>
-          <h3 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '16px', color: '#00D4FF' }}>🔑 Phrase Analysis Breakdown</h3>
+          <h3 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '16px', color: 'var(--text-primary)' }}>🔑 Phrase Analysis Breakdown</h3>
           <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '20px' }}>
             Analysis of the most common suspicious phrases found in the dataset, often indicating bot activity, review farms, or coordinated opinion manipulation campaigns.
           </p>

@@ -30,6 +30,11 @@ def authenticate_user(username: str, password: str):
         return False
     if not verify_password(password, user["hashed_password"]):
         return False
+    if user["status"] == "rejected":
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Your Account Creation request was rejected"
+        )
     if user["status"] != "approved":
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,

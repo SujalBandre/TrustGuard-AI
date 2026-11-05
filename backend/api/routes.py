@@ -20,9 +20,9 @@ from .schemas import (
     UserReportInput, AdminAnalystRequestInput, AnalystReportInput,
 )
 from backend.engine.detection import compute_trust_score, analyze_text, analyze_behavior, analyze_temporal
-from backend.engine.price_analyzer import generate_price_trust_history, calculate_price_integrity
+from backend.engine.price_analyzer import calculate_price_integrity
 from backend.engine.scraper import scrape_product_data
-from backend.engine.api_gateway import verify_url_safety, get_exchange_rate, get_price_history
+from backend.engine.api_gateway import get_exchange_rate, get_price_history
 from backend.engine.syndicate_logic import identify_syndicate_leaders
 from backend.engine.report_engine import TrustBuyReport
 from backend.engine.summarizer import extract_aspects_and_summarize
@@ -37,7 +37,7 @@ from backend.engine.email_service import (
 from backend.engine.report_store import (
     add_user_report, get_user_reports, mark_user_report_reviewed,
     add_analyst_request, get_analyst_requests,
-    add_analyst_report, get_analyst_reports, mark_analyst_report_read,
+    add_analyst_report, get_analyst_reports,
     add_to_batch_history, get_batch_history,
 )
 
@@ -86,9 +86,13 @@ def register(payload: RegisterInput):
     conn = get_db_connection()
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM users WHERE username = ?", (payload.username,))
-    if cursor.fetchone():
-        conn.close()
-        raise HTTPException(400, "Username already registered")
+    existing_user = cursor.fetchone()
+    if existing_user:
+        if existing_user["status"] == "rejected":
+            cursor.execute("DELETE FROM users WHERE id = ?", (existing_user["id"],))
+        else:
+            conn.close()
+            raise HTTPException(400, "Username already registered")
         
     hashed = get_password_hash(payload.password)
     # Validate role is either admin, analyst, or user
@@ -107,7 +111,7 @@ def register(payload: RegisterInput):
 def get_requests(current_user: dict = Depends(get_current_owner)):
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("SELECT id, username, role, display_name FROM users WHERE status = 'pending'")
+    cursor.execute("SELECT id, username, role, display_name, status FROM users")
     rows = cursor.fetchall()
     conn.close()
     return [dict(r) for r in rows]
@@ -553,7 +557,6 @@ def opinion_manipulation():
             "page": r.get("page", 1),
         })
 
-    from collections import Counter
     all_words = ' '.join(r.get('text', '') for r in flagged).lower().split()
     stop = {'this', 'that', 'with', 'have', 'from', 'they', 'will', 'your', 'what', 'been', 'more',
             'when', 'very', 'just', 'like', 'also', 'into', 'than', 'then', 'some', 'would'}

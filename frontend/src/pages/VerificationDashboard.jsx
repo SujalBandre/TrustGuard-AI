@@ -6,6 +6,7 @@ export default function VerificationDashboard({ auth }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [msg, setMsg] = useState('');
+  const [filter, setFilter] = useState('all');
 
   const fetchRequests = async () => {
     setLoading(true);
@@ -51,6 +52,8 @@ export default function VerificationDashboard({ auth }) {
     }
   };
 
+  const filteredRequests = requests.filter(req => filter === 'all' || (req.status || 'pending') === filter);
+
   return (
     <div style={{ padding: '24px' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
@@ -82,6 +85,29 @@ export default function VerificationDashboard({ auth }) {
         </div>
       )}
 
+      {/* Filter Options */}
+      <div style={{ display: 'flex', gap: '12px', marginBottom: '24px' }}>
+        {['all', 'pending', 'approved', 'rejected'].map(f => (
+          <button
+            key={f}
+            onClick={() => setFilter(f)}
+            style={{
+              padding: '8px 16px',
+              borderRadius: '8px',
+              background: filter === f ? 'var(--accent-primary)' : 'var(--bg-card)',
+              color: filter === f ? '#fff' : 'var(--text-secondary)',
+              fontWeight: 600,
+              cursor: 'pointer',
+              textTransform: 'capitalize',
+              transition: 'all 0.2s',
+              border: filter === f ? '1px solid transparent' : '1px solid var(--border)'
+            }}
+          >
+            {f === 'pending' ? 'Requests' : f}
+          </button>
+        ))}
+      </div>
+
       <div style={{
         background: 'var(--bg-card)', border: '1px solid var(--border)',
         borderRadius: '16px', padding: '24px',
@@ -92,10 +118,10 @@ export default function VerificationDashboard({ auth }) {
             <Clock size={24} style={{ animation: 'spin 2s linear infinite', marginBottom: '12px' }} />
             <div>Loading requests...</div>
           </div>
-        ) : requests.length === 0 ? (
+        ) : filteredRequests.length === 0 ? (
           <div style={{ textAlign: 'center', padding: '40px', color: 'var(--text-muted)' }}>
             <CheckCircle size={32} color="#10B981" style={{ marginBottom: '12px', opacity: 0.5 }} />
-            <div>No pending account requests.</div>
+            <div>No {filter === 'all' ? '' : filter} requests found.</div>
           </div>
         ) : (
           <div style={{ overflowX: 'auto' }}>
@@ -106,53 +132,67 @@ export default function VerificationDashboard({ auth }) {
                   <th style={{ padding: '12px', color: 'var(--text-secondary)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Username</th>
                   <th style={{ padding: '12px', color: 'var(--text-secondary)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Display Name</th>
                   <th style={{ padding: '12px', color: 'var(--text-secondary)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Role</th>
+                  <th style={{ padding: '12px', color: 'var(--text-secondary)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Status</th>
                   <th style={{ padding: '12px', color: 'var(--text-secondary)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Actions</th>
                 </tr>
               </thead>
               <tbody>
-                {requests.map(req => (
+                {filteredRequests.map(req => (
                   <tr key={req.id} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
                     <td style={{ padding: '16px 12px', color: 'var(--text-muted)' }}>#{req.id}</td>
                     <td style={{ padding: '16px 12px', fontWeight: 600 }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <User size={14} color="var(--cyan)" /> {req.username}
+                        <User size={14} color="var(--accent-primary)" /> {req.username}
                       </div>
                     </td>
                     <td style={{ padding: '16px 12px', color: 'var(--text-primary)' }}>{req.display_name}</td>
                     <td style={{ padding: '16px 12px' }}>
                       <span style={{
                         padding: '4px 8px', borderRadius: '4px', fontSize: '0.7rem', fontWeight: 700,
-                        background: req.role === 'admin' ? 'rgba(124,58,237,0.15)' : 'rgba(245,158,11,0.15)',
-                        color: req.role === 'admin' ? '#a78bfa' : '#F59E0B'
+                        background: req.role === 'admin' ? 'rgba(124,58,237,0.15)' : 'rgba(56,161,105,0.15)',
+                        color: req.role === 'admin' ? '#a78bfa' : 'var(--accent-success)'
                       }}>
                         {req.role.toUpperCase()}
                       </span>
                     </td>
                     <td style={{ padding: '16px 12px' }}>
-                      <div style={{ display: 'flex', gap: '8px' }}>
-                        <button
-                          onClick={() => handleAction(req.id, 'approve')}
-                          style={{
-                            display: 'flex', alignItems: 'center', gap: '4px', padding: '6px 12px',
-                            borderRadius: '6px', border: '1px solid rgba(16,185,129,0.3)',
-                            background: 'rgba(16,185,129,0.1)', color: '#10B981',
-                            cursor: 'pointer', fontSize: '0.75rem', fontWeight: 600, transition: 'all 0.2s'
-                          }}
-                        >
-                          <Check size={14} /> Approve
-                        </button>
-                        <button
-                          onClick={() => handleAction(req.id, 'reject')}
-                          style={{
-                            display: 'flex', alignItems: 'center', gap: '4px', padding: '6px 12px',
-                            borderRadius: '6px', border: '1px solid rgba(239,68,68,0.3)',
-                            background: 'rgba(239,68,68,0.1)', color: '#ef4444',
-                            cursor: 'pointer', fontSize: '0.75rem', fontWeight: 600, transition: 'all 0.2s'
-                          }}
-                        >
-                          <X size={14} /> Reject
-                        </button>
-                      </div>
+                      <span style={{
+                        padding: '4px 8px', borderRadius: '4px', fontSize: '0.7rem', fontWeight: 700,
+                        background: req.status === 'approved' ? 'rgba(16,185,129,0.15)' : req.status === 'rejected' ? 'rgba(239,68,68,0.15)' : 'rgba(245,158,11,0.15)',
+                        color: req.status === 'approved' ? '#10B981' : req.status === 'rejected' ? '#ef4444' : '#f59e0b'
+                      }}>
+                        {req.status ? req.status.toUpperCase() : 'PENDING'}
+                      </span>
+                    </td>
+                    <td style={{ padding: '16px 12px' }}>
+                      {req.status === 'pending' ? (
+                        <div style={{ display: 'flex', gap: '8px' }}>
+                          <button
+                            onClick={() => handleAction(req.id, 'approve')}
+                            style={{
+                              display: 'flex', alignItems: 'center', gap: '4px', padding: '6px 12px',
+                              borderRadius: '6px', border: '1px solid rgba(16,185,129,0.3)',
+                              background: 'rgba(16,185,129,0.1)', color: '#10B981',
+                              cursor: 'pointer', fontSize: '0.75rem', fontWeight: 600, transition: 'all 0.2s'
+                            }}
+                          >
+                            <Check size={14} /> Approve
+                          </button>
+                          <button
+                            onClick={() => handleAction(req.id, 'reject')}
+                            style={{
+                              display: 'flex', alignItems: 'center', gap: '4px', padding: '6px 12px',
+                              borderRadius: '6px', border: '1px solid rgba(239,68,68,0.3)',
+                              background: 'rgba(239,68,68,0.1)', color: '#ef4444',
+                              cursor: 'pointer', fontSize: '0.75rem', fontWeight: 600, transition: 'all 0.2s'
+                            }}
+                          >
+                            <X size={14} /> Reject
+                          </button>
+                        </div>
+                      ) : (
+                        <span style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>—</span>
+                      )}
                     </td>
                   </tr>
                 ))}

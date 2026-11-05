@@ -18,10 +18,7 @@ from sklearn.model_selection import train_test_split, GridSearchCV, StratifiedKF
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression, SGDClassifier
 from sklearn.naive_bayes import MultinomialNB
-from sklearn.ensemble import VotingClassifier, RandomForestClassifier
-from sklearn.pipeline import Pipeline, FeatureUnion
-from sklearn.calibration import CalibratedClassifierCV
-from sklearn.preprocessing import FunctionTransformer, MaxAbsScaler
+from sklearn.preprocessing import MaxAbsScaler
 from sklearn.metrics import (
     accuracy_score, precision_score, recall_score, f1_score,
     confusion_matrix, classification_report, roc_auc_score

@@ -169,8 +169,8 @@ function ReportModal({ productUrl, onClose, onSubmit }) {
 
         {sent ? (
           <div style={{ textAlign: 'center', padding: '20px 0' }}>
-            <CheckCircle size={48} color="#10B981" style={{ marginBottom: '12px' }} />
-            <h3 style={{ fontWeight: 800, marginBottom: '8px', color: '#10B981' }}>Report Submitted!</h3>
+            <CheckCircle size={48} color="var(--accent-success)" style={{ marginBottom: '12px' }} />
+            <h3 style={{ fontWeight: 800, marginBottom: '8px', color: 'var(--accent-success)' }}>Report Submitted!</h3>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
               Your report has been sent to our admin team. Thank you for helping keep reviews trustworthy.
             </p>
@@ -178,16 +178,16 @@ function ReportModal({ productUrl, onClose, onSubmit }) {
         ) : (
           <form onSubmit={handleSubmit}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
-              <div style={{ width: 40, height: 40, borderRadius: '10px', background: 'rgba(239,68,68,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <Flag size={20} color="#EF4444" />
+              <div style={{ width: 40, height: 40, borderRadius: '10px', background: 'rgba(229,62,62,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <Flag size={20} color="var(--accent-danger)" />
               </div>
               <div>
                 <h3 style={{ fontWeight: 800, fontSize: '1rem' }}>Report Suspicious Reviews</h3>
                 <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Report sent to TrustGuard admin team</p>
               </div>
             </div>
-
-            <div style={{ padding: '8px 12px', borderRadius: '8px', background: 'rgba(0,212,255,0.07)', border: '1px solid rgba(0,212,255,0.15)', marginBottom: '16px', fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+ 
+            <div style={{ padding: '8px 12px', borderRadius: '8px', background: 'rgba(124,58,237,0.08)', border: '1px solid rgba(124,58,237,0.15)', marginBottom: '16px', fontSize: '0.75rem', color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>
               🔗 {productUrl?.slice(0, 60)}{productUrl?.length > 60 ? '...' : ''}
             </div>
 
@@ -286,7 +286,7 @@ export default function TrustBuyAnalyzer() {
       <div className="page-header">
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '6px' }}>
-            <Search size={28} color="var(--cyan)" />
+            <Search size={28} color="var(--text-primary)" />
             <h1 style={{ fontSize: '1.5rem', fontWeight: 800 }}>Review Analyzer</h1>
           </div>
         </div>
@@ -294,10 +294,6 @@ export default function TrustBuyAnalyzer() {
           Paste any e-commerce product URL — get sentiment analysis, fake review detection, and bot identification.
         </p>
       </div>
-
-
-
-
 
       <>
 
@@ -307,8 +303,8 @@ export default function TrustBuyAnalyzer() {
               <button
                 onClick={() => { setMode('URL'); setInputVal(''); setResult(null); setStatus('idle'); setUrlAlert(null); }}
                 style={{
-                  padding: '8px 16px', borderRadius: '8px', border: `1px solid ${mode==='URL' ? 'var(--cyan)' : 'var(--border)'}`,
-                  background: mode==='URL' ? 'var(--cyan-dim)' : 'var(--bg-card)', color: mode==='URL' ? 'var(--cyan)' : 'var(--text-secondary)',
+                  padding: '8px 16px', borderRadius: '8px', border: `1px solid ${mode==='URL' ? 'var(--accent-primary)' : 'var(--border)'}`,
+                  background: mode==='URL' ? 'var(--accent-dim)' : 'var(--bg-surface-2)', color: mode==='URL' ? 'var(--accent-primary)' : 'var(--text-secondary)',
                   cursor: 'pointer', fontSize: '0.85rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '6px',
                 }}>
                 <Link size={14} /> E-Commerce URL
@@ -316,8 +312,8 @@ export default function TrustBuyAnalyzer() {
               <button
                 onClick={() => { setMode('TEXT'); setInputVal(''); setResult(null); setStatus('idle'); setUrlAlert(null); }}
                 style={{
-                  padding: '8px 16px', borderRadius: '8px', border: `1px solid ${mode==='TEXT' ? 'var(--cyan)' : 'var(--border)'}`,
-                  background: mode==='TEXT' ? 'var(--cyan-dim)' : 'var(--bg-card)', color: mode==='TEXT' ? 'var(--cyan)' : 'var(--text-secondary)',
+                  padding: '8px 16px', borderRadius: '8px', border: `1px solid ${mode==='TEXT' ? 'var(--accent-primary)' : 'var(--border)'}`,
+                  background: mode==='TEXT' ? 'var(--accent-dim)' : 'var(--bg-surface-2)', color: mode==='TEXT' ? 'var(--accent-primary)' : 'var(--text-secondary)',
                   cursor: 'pointer', fontSize: '0.85rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '6px',
                 }}>
                 <FileText size={14} /> Raw Review Text
@@ -338,7 +334,7 @@ export default function TrustBuyAnalyzer() {
                     <span style={{
                       position: 'absolute', right: '12px', top: '50%', transform: 'translateY(-50%)',
                       fontSize: '0.7rem', fontWeight: 700, padding: '2px 8px', borderRadius: '100px',
-                      background: 'var(--green-dim)', color: 'var(--green)',
+                      background: 'var(--bg-surface-2)', color: 'var(--accent-primary)',
                     }}>✓ {detectedPlatform.toUpperCase()}</span>
                   )}
                 </div>
@@ -358,7 +354,7 @@ export default function TrustBuyAnalyzer() {
                 >
                   {status === 'scanning' ? (
                     <>
-                      <div style={{ width: '14px', height: '14px', border: '2px solid rgba(0,0,0,0.3)', borderTopColor: '#000', borderRadius: '50%', animation: 'spin 0.6s linear infinite' }} />
+                      <div style={{ width: '14px', height: '14px', border: '2px solid rgba(255,255,255,0.3)', borderTopColor: '#ffffff', borderRadius: '50%', animation: 'spin 0.6s linear infinite' }} />
                       Scanning All Pages...
                     </>
                   ) : '🔍 Scan for Truth'}
@@ -367,8 +363,8 @@ export default function TrustBuyAnalyzer() {
                   <button
                     onClick={() => setShowReportModal(true)}
                     style={{
-                      padding: '10px 16px', borderRadius: '8px', border: '1px solid rgba(239,68,68,0.4)',
-                      background: 'rgba(239,68,68,0.08)', color: '#EF4444',
+                      padding: '10px 16px', borderRadius: '8px', border: '1px solid rgba(229,62,62,0.4)',
+                      background: 'rgba(229,62,62,0.08)', color: 'var(--accent-danger)',
                       cursor: 'pointer', fontSize: '0.83rem', fontWeight: 600,
                       display: 'flex', alignItems: 'center', gap: '6px',
                     }}>
@@ -386,7 +382,7 @@ export default function TrustBuyAnalyzer() {
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '4px' }}>
                   <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', alignSelf: 'center' }}>Supported:</span>
                   {ECOMMERCE_PLATFORMS.map(p => (
-                    <span key={p} style={{ padding: '2px 8px', borderRadius: '100px', fontSize: '0.65rem', fontWeight: 600, background: 'rgba(255,255,255,0.05)', color: 'var(--text-muted)' }}>{p}</span>
+                    <span key={p} style={{ padding: '2px 8px', borderRadius: '100px', fontSize: '0.65rem', fontWeight: 600, background: 'var(--bg-surface-2)', color: 'var(--text-secondary)', border: '1px solid var(--border)' }}>{p}</span>
                   ))}
                 </div>
               )}
@@ -443,15 +439,15 @@ export default function TrustBuyAnalyzer() {
                     </div>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '10px' }}>
                       {[
-                        { label: 'Fake / Bot Reviews', value: result.reputation?.fake_ratio?.fake || 0, color: '#EF4444', emoji: '🚩', sub: 'flagged by AI' },
-                        { label: 'Genuine Reviews', value: result.reputation?.fake_ratio?.genuine || 0, color: '#10B981', emoji: '✅', sub: 'verified authentic' },
-                        { label: 'Total Analyzed', value: result.reputation?.fake_ratio?.total_reviews || 0, color: '#00D4FF', emoji: '📊', sub: 'reviews processed' },
-                        { label: 'NLP Risk Score', value: `${Math.round((result.nlp_score || 0) * 100)}%`, color: result.nlp_score > 0.5 ? '#EF4444' : '#10B981', emoji: '🤖', sub: 'manipulation probability' },
+                        { label: 'Fake / Bot Reviews', value: result.reputation?.fake_ratio?.fake || 0, color: 'var(--accent-danger)', emoji: '🚩', sub: 'flagged by AI' },
+                        { label: 'Genuine Reviews', value: result.reputation?.fake_ratio?.genuine || 0, color: 'var(--accent-success)', emoji: '✅', sub: 'verified authentic' },
+                        { label: 'Total Analyzed', value: result.reputation?.fake_ratio?.total_reviews || 0, color: 'var(--accent-primary)', emoji: '📊', sub: 'reviews processed' },
+                        { label: 'NLP Risk Score', value: `${Math.round((result.nlp_score || 0) * 100)}%`, color: result.nlp_score > 0.5 ? 'var(--accent-danger)' : 'var(--accent-success)', emoji: '🤖', sub: 'manipulation probability' },
                       ].map(({ label, value, color, emoji, sub }) => (
                         <div key={label} style={{ padding: '14px', borderRadius: '10px', border: '1px solid var(--border)', background: 'var(--bg-card)' }}>
                           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
                             <span style={{ fontSize: '1.2rem' }}>{emoji}</span>
-                            <div style={{ fontSize: '1.6rem', fontWeight: 800, color }}>{value}</div>
+                            <div style={{ fontSize: '1.6rem', fontWeight: 800, color, fontFamily: 'var(--font-mono)' }}>{value}</div>
                           </div>
                           <div style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--text-secondary)', marginBottom: '2px' }}>{label}</div>
                           <div style={{ fontSize: '0.65rem', color: 'var(--text-muted)' }}>{sub}</div>

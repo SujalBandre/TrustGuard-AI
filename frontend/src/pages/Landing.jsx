@@ -1,125 +1,145 @@
 import React from 'react';
-import { Shield, Camera, Search, LogIn } from 'lucide-react';
+import { Shield, Camera, Search, LogIn, ArrowRight, Sun, Moon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import AetherFlowHero from '../components/ui/aether-flow-hero';
 
-export default function Landing({ setAuth }) {
+export default function Landing({ setAuth, theme, toggleTheme }) {
   const navigate = useNavigate();
 
   const handleGuestLogin = (destination) => {
-    // Implicitly login as guest user to access the public tools
     setAuth({ token: 'guest-token', role: 'user', username: 'Guest', redirect: destination });
     navigate(destination);
   };
 
   return (
-    <div style={{
-      minHeight: '100vh', width: '100vw', background: 'var(--bg-deepspace)',
-      display: 'flex', flexDirection: 'column',
-      backgroundImage: 'radial-gradient(ellipse at 20% 50%, rgba(0,212,255,0.06) 0%, transparent 60%), radial-gradient(ellipse at 80% 50%, rgba(124,58,237,0.06) 0%, transparent 60%)',
-    }}>
-      {/* Top Navigation Bar */}
-      <div style={{ 
-        display: 'flex', justifyContent: 'space-between', alignItems: 'center', 
-        padding: '24px 48px', width: '100%', boxSizing: 'border-box' 
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <Shield size={28} color="var(--cyan)" />
-          <h1 style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--text-primary)', margin: 0 }}>
-            TrustGuard <span style={{ color: 'var(--cyan)' }}>AI</span>
+    <div style={{ minHeight: '100vh', width: '100vw', background: 'var(--bg-base)', display: 'flex', flexDirection: 'column' }}>
+      
+      {/* Fixed Top Navigation Bar */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        style={{
+          display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+          padding: '20px 48px', width: '100%', boxSizing: 'border-box',
+          borderBottom: '1px solid var(--border)',
+          background: 'rgba(10, 10, 10, 0.7)',
+          backdropFilter: 'blur(24px)',
+          position: 'fixed', top: 0, zIndex: 50,
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <div style={{
+            width: '40px', height: '40px', borderRadius: '10px',
+            background: 'linear-gradient(135deg, #C0392B, #8E44AD)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            boxShadow: '0 0 20px rgba(124,58,237,0.3)',
+          }}>
+            <Shield size={24} color="#ffffff" />
+          </div>
+          <h1 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-primary)', margin: 0 }}>
+            TrustGuard <span style={{ color: '#C0392B' }}>AI</span>
           </h1>
         </div>
-        <button
-          onClick={() => navigate('/login')}
-          style={{
-            display: 'flex', alignItems: 'center', gap: '8px',
-            padding: '10px 20px', borderRadius: '8px', border: '1px solid var(--border)',
-            background: 'var(--bg-card)', color: 'var(--text-primary)',
-            cursor: 'pointer', fontWeight: 600, transition: 'all 0.2s',
-          }}
-          onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--cyan)'; e.currentTarget.style.color = 'var(--cyan)'; }}
-          onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.color = 'var(--text-primary)'; }}
-        >
-          <LogIn size={18} /> Staff Login
-        </button>
-      </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
 
-      {/* Main Content */}
-      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
-        <h2 style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '16px', textAlign: 'center' }}>
-          Protect Your E-Commerce Reputation
-        </h2>
-        <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', marginBottom: '48px', maxWidth: '600px', textAlign: 'center', lineHeight: '1.6' }}>
-          Select a tool below to analyze product reviews or verify damage claims using our advanced AI detection engine.
-        </p>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => navigate('/login')}
+            className="btn btn-secondary"
+            style={{ padding: '8px 20px', fontSize: '0.9rem' }}
+          >
+            <LogIn size={16} /> Staff Login
+          </motion.button>
+        </div>
+      </motion.div>
 
-        <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', justifyContent: 'center' }}>
-          
-          {/* Review Analyzer Card */}
-          <button
+      {/* Hero — Full-screen Particle Canvas */}
+      <AetherFlowHero
+        theme={theme}
+        badgeText="Live Protection Active"
+        title={
+          <>
+            Real-Time Operations &amp; <br />
+            <span style={{
+              background: theme === 'dark'
+                ? 'linear-gradient(135deg, #FFFFFF, #A3A3A3)'
+                : 'linear-gradient(135deg, #111111, #6B6B6B)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}>
+              Reputation Security
+            </span>
+          </>
+        }
+        subtitle="Detect fake reviews, opinion manipulation, and verify damage claims using our advanced AI detection engine."
+      >
+        {/* CTA Cards */}
+        <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}>
+
+          {/* Review Analyzer */}
+          <motion.button
+            whileHover={{ y: -6, boxShadow: 'var(--accent-glow)', borderColor: 'var(--border-strong)' }}
+            whileTap={{ scale: 0.98 }}
             onClick={() => handleGuestLogin('/trustbuy')}
+            className="card"
             style={{
-              width: '320px', padding: '32px 24px', borderRadius: '16px', 
-              border: '1px solid var(--border)', background: 'var(--bg-card)',
-              cursor: 'pointer', transition: 'all 0.3s', display: 'flex', flexDirection: 'column',
-              alignItems: 'center', gap: '16px', color: 'var(--text-primary)', textAlign: 'center'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = 'var(--cyan)';
-              e.currentTarget.style.transform = 'translateY(-4px)';
-              e.currentTarget.style.boxShadow = '0 12px 40px rgba(0,212,255,0.15)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = 'var(--border)';
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = 'none';
+              width: '320px', padding: '32px 24px',
+              cursor: 'pointer', display: 'flex', flexDirection: 'column',
+              alignItems: 'flex-start', gap: '14px', color: 'var(--text-primary)', textAlign: 'left',
+              background: 'var(--bg-card)', border: '1px solid var(--border)',
+              backdropFilter: 'blur(16px)',
             }}
           >
             <div style={{
-              width: '64px', height: '64px', borderRadius: '50%', background: 'rgba(0,212,255,0.1)',
-              display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--cyan)'
+              width: '52px', height: '52px', borderRadius: '14px', background: 'var(--accent-dim)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-primary)',
             }}>
-              <Search size={32} />
+              <Search size={26} />
             </div>
-            <div style={{ fontWeight: 700, fontSize: '1.25rem' }}>Review Analyzer</div>
-            <div style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.5' }}>
-              Detect fake reviews, opinion manipulation, and review bombing with our AI engine.
+            <div style={{ fontWeight: 700, fontSize: '1.15rem', color: 'var(--text-primary)' }}>Review Analyzer</div>
+            <div style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.6', flex: 1 }}>
+              Instantly detect fake reviews and review bombing campaigns with AI precision.
             </div>
-          </button>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--accent-primary)', fontSize: '0.85rem', fontWeight: 600 }}>
+              Launch Tool <ArrowRight size={14} />
+            </div>
+          </motion.button>
 
-          {/* Damage Verifier Card */}
-          <button
+          {/* Damage Verifier */}
+          <motion.button
+            whileHover={{ y: -6, boxShadow: 'var(--accent-glow)', borderColor: 'var(--border-strong)' }}
+            whileTap={{ scale: 0.98 }}
             onClick={() => handleGuestLogin('/damage-verifier')}
+            className="card"
             style={{
-              width: '320px', padding: '32px 24px', borderRadius: '16px', 
-              border: '1px solid var(--border)', background: 'var(--bg-card)',
-              cursor: 'pointer', transition: 'all 0.3s', display: 'flex', flexDirection: 'column',
-              alignItems: 'center', gap: '16px', color: 'var(--text-primary)', textAlign: 'center'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = 'var(--purple)';
-              e.currentTarget.style.transform = 'translateY(-4px)';
-              e.currentTarget.style.boxShadow = '0 12px 40px rgba(124,58,237,0.15)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = 'var(--border)';
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = 'none';
+              width: '320px', padding: '32px 24px',
+              cursor: 'pointer', display: 'flex', flexDirection: 'column',
+              alignItems: 'flex-start', gap: '14px', color: 'var(--text-primary)', textAlign: 'left',
+              background: 'var(--bg-card)', border: '1px solid var(--border)',
+              backdropFilter: 'blur(16px)',
             }}
           >
             <div style={{
-              width: '64px', height: '64px', borderRadius: '50%', background: 'rgba(124,58,237,0.1)',
-              display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--purple)'
+              width: '52px', height: '52px', borderRadius: '14px', background: 'var(--accent-dim)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-primary)',
             }}>
-              <Camera size={32} />
+              <Camera size={26} />
             </div>
-            <div style={{ fontWeight: 700, fontSize: '1.25rem' }}>Damage Verifier</div>
-            <div style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.5' }}>
-              Verify fraudulent return claims and damaged product images instantly.
+            <div style={{ fontWeight: 700, fontSize: '1.15rem', color: 'var(--text-primary)' }}>Damage Verifier</div>
+            <div style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.6', flex: 1 }}>
+              Verify fraudulent return claims and validate product damage images with CV models.
             </div>
-          </button>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--accent-primary)', fontSize: '0.85rem', fontWeight: 600 }}>
+              Launch Tool <ArrowRight size={14} />
+            </div>
+          </motion.button>
 
         </div>
-      </div>
+      </AetherFlowHero>
     </div>
   );
 }

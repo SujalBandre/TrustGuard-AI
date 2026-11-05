@@ -86,7 +86,7 @@ export default function AnalystPanel() {
 
       <div className="page-header">
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '6px' }}>
-          <BarChart2 size={28} color="var(--amber)" />
+          <BarChart2 size={28} color="var(--text-primary)" />
           <h1 style={{ fontSize: '1.5rem', fontWeight: 800 }}>Data Analyst Panel</h1>
         </div>
         <p style={{ color: 'var(--text-secondary)', fontSize: '0.875rem' }}>
@@ -101,22 +101,20 @@ export default function AnalystPanel() {
         </div>
       )}
 
-      {/* Stats row */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '24px' }}>
         {[
-          { label: 'Pending Requests', value: pending.length, color: '#F59E0B', emoji: '⏳' },
-          { label: 'Completed', value: completed.length, color: '#10B981', emoji: '✅' },
-          { label: 'Total Requests', value: requests.length, color: '#00D4FF', emoji: '📋' },
+          { label: 'Pending Requests', value: pending.length, color: 'var(--accent-warning)', emoji: '⏳' },
+          { label: 'Completed', value: completed.length, color: 'var(--accent-success)', emoji: '✅' },
+          { label: 'Total Requests', value: requests.length, color: 'var(--accent-primary)', emoji: '📋' },
         ].map(({ label, value, color, emoji }) => (
-          <div key={label} style={{ padding: '18px', borderRadius: '12px', background: 'var(--bg-card)', border: '1px solid var(--border)', textAlign: 'center' }}>
+          <div key={label} style={{ padding: '18px', borderRadius: '12px', background: 'var(--bg-surface)', border: '1px solid var(--border)', textAlign: 'center' }}>
             <div style={{ fontSize: '1.5rem', marginBottom: '4px' }}>{emoji}</div>
-            <div style={{ fontSize: '2rem', fontWeight: 800, color, lineHeight: 1 }}>{value}</div>
+            <div style={{ fontSize: '2rem', fontWeight: 800, color, fontFamily: 'var(--font-mono)', lineHeight: 1 }}>{value}</div>
             <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', marginTop: '4px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>{label}</div>
           </div>
         ))}
       </div>
 
-      {/* Tabs */}
       <div style={{ display: 'flex', gap: '4px', borderBottom: '1px solid var(--border)', marginBottom: '20px' }}>
         {[
           { key: 'inbox', label: `📥 Inbox (${pending.length} pending)` },
@@ -126,8 +124,8 @@ export default function AnalystPanel() {
           <button key={key} onClick={() => setTab(key)} style={{
             padding: '8px 16px', background: 'none', border: 'none', cursor: 'pointer',
             fontSize: '0.85rem', fontWeight: 700,
-            color: tab === key ? 'var(--amber)' : 'var(--text-muted)',
-            borderBottom: tab === key ? '2px solid var(--amber)' : '2px solid transparent',
+            color: tab === key ? 'var(--accent-primary)' : 'var(--text-muted)',
+            borderBottom: tab === key ? '2px solid var(--accent-primary)' : '2px solid transparent',
             transition: 'all 0.2s',
           }}>{label}</button>
         ))}
@@ -137,7 +135,7 @@ export default function AnalystPanel() {
       {tab === 'inbox' && (
         <div>
           <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '12px' }}>
-            <button onClick={fetchRequests} style={{ padding: '6px 12px', borderRadius: '6px', border: '1px solid var(--border)', background: 'var(--bg-input)', color: 'var(--text-secondary)', cursor: 'pointer', fontSize: '0.78rem', display: 'flex', alignItems: 'center', gap: '5px' }}>
+            <button onClick={fetchRequests} style={{ padding: '6px 12px', borderRadius: '6px', border: '1px solid var(--accent-primary)', background: 'transparent', color: 'var(--accent-primary)', cursor: 'pointer', fontSize: '0.78rem', display: 'flex', alignItems: 'center', gap: '5px' }}>
               <RefreshCw size={12} /> Refresh
             </button>
           </div>
@@ -151,34 +149,34 @@ export default function AnalystPanel() {
           ) : (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {pending.map((r, i) => (
-                <div key={i} style={{ padding: '16px 18px', background: 'var(--bg-card)', borderRadius: '12px', border: '1px solid rgba(245,158,11,0.25)', borderLeft: '4px solid #F59E0B' }}>
+                <div key={i} style={{ padding: '16px 18px', background: 'var(--bg-surface)', borderRadius: '12px', border: '1px solid rgba(217,119,6,0.25)', borderLeft: '4px solid var(--accent-warning)' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px', flexWrap: 'wrap', gap: '6px' }}>
                     <div>
                       <div style={{ fontWeight: 800, fontSize: '0.95rem', marginBottom: '3px' }}>{r.product_name}</div>
-                      <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'monospace' }}>
-                        🔗 <a href={r.product_url} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--cyan)', textDecoration: 'none' }}>{r.product_url?.slice(0, 60)}...</a>
+                      <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
+                        🔗 <a href={r.product_url} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-primary)', textDecoration: 'none' }}>{r.product_url?.slice(0, 60)}...</a>
                       </div>
                     </div>
                     <StatusBadge status={r.status} />
                   </div>
 
-                  <div style={{ padding: '10px 12px', background: 'rgba(245,158,11,0.06)', borderRadius: '8px', borderLeft: '2px solid #F59E0B', fontSize: '0.8rem', color: 'var(--text-secondary)', marginBottom: '10px', fontStyle: 'italic' }}>
+                  <div style={{ padding: '10px 12px', background: 'rgba(217,119,6,0.06)', borderRadius: '8px', borderLeft: '2px solid var(--accent-warning)', fontSize: '0.8rem', color: 'var(--text-secondary)', marginBottom: '10px', fontStyle: 'italic' }}>
                     📋 Admin Note: "{r.admin_note}"
                   </div>
 
                   {r.analysis_summary && Object.keys(r.analysis_summary).length > 0 && (
                     <div style={{ display: 'flex', gap: '16px', fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '12px', padding: '8px 12px', background: 'rgba(255,255,255,0.03)', borderRadius: '6px' }}>
-                      <span>Trust Score: <b style={{ color: 'var(--cyan)' }}>{r.analysis_summary.trust_score}%</b></span>
-                      <span>Fake: <b style={{ color: '#EF4444' }}>{r.analysis_summary.fake_count}</b></span>
+                      <span>Trust Score: <b style={{ color: 'var(--accent-primary)' }}>{r.analysis_summary.trust_score}%</b></span>
+                      <span>Fake: <b style={{ color: 'var(--accent-danger)' }}>{r.analysis_summary.fake_count}</b></span>
                       <span>Total: <b>{r.analysis_summary.total_reviews}</b></span>
-                      <span>Risk: <b style={{ color: r.analysis_summary.risk_level === 'HIGH' ? '#EF4444' : '#F59E0B' }}>{r.analysis_summary.risk_level}</b></span>
+                      <span>Risk: <b style={{ color: r.analysis_summary.risk_level === 'HIGH' ? 'var(--accent-danger)' : 'var(--accent-warning)' }}>{r.analysis_summary.risk_level}</b></span>
                     </div>
                   )}
 
                   <div style={{ display: 'flex', gap: '8px' }}>
                     <button
                       onClick={() => { setSelectedReq(r); setTab('write'); setReportContent(''); }}
-                      style={{ padding: '7px 16px', borderRadius: '8px', border: 'none', background: '#F59E0B', color: '#000', fontWeight: 700, cursor: 'pointer', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '5px' }}>
+                      style={{ padding: '7px 16px', borderRadius: '8px', border: 'none', background: 'var(--accent-primary)', color: '#ffffff', fontWeight: 700, cursor: 'pointer', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '5px' }}>
                       ✍️ Write Report
                     </button>
                   </div>
@@ -217,9 +215,9 @@ export default function AnalystPanel() {
           </div>
 
           {selectedReq && (
-            <div style={{ padding: '10px 14px', borderRadius: '8px', background: 'rgba(245,158,11,0.07)', border: '1px solid rgba(245,158,11,0.25)', fontSize: '0.78rem', color: 'var(--text-secondary)', marginBottom: '16px' }}>
+            <div style={{ padding: '10px 14px', borderRadius: '8px', background: 'rgba(124,58,237,0.08)', border: '1px solid rgba(124,58,237,0.25)', fontSize: '0.78rem', color: 'var(--text-secondary)', marginBottom: '16px' }}>
               <div style={{ fontWeight: 700, marginBottom: '4px' }}>{selectedReq.product_name}</div>
-              <div style={{ color: 'var(--text-muted)', fontFamily: 'monospace', marginBottom: '4px' }}>🔗 {selectedReq.product_url?.slice(0, 60)}...</div>
+              <div style={{ color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', marginBottom: '4px' }}>🔗 {selectedReq.product_url?.slice(0, 60)}...</div>
               <div style={{ fontStyle: 'italic' }}>Admin note: "{selectedReq.admin_note}"</div>
             </div>
           )}
@@ -242,7 +240,7 @@ export default function AnalystPanel() {
                 </div>
               </div>
               <div>
-                <label style={{ cursor: 'pointer', padding: '6px 12px', background: 'rgba(245,158,11,0.1)', color: '#F59E0B', border: '1px solid #F59E0B44', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '6px', transition: 'all 0.2s' }} className="upload-btn-hover">
+                <label style={{ cursor: 'pointer', padding: '6px 12px', background: 'rgba(124,58,237,0.1)', color: 'var(--accent-primary)', border: '1px solid rgba(124,58,237,0.3)', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '6px', transition: 'all 0.2s' }} className="upload-btn-hover">
                   <UploadCloud size={14} /> Upload Report File
                   <input type="file" accept=".txt,.md,.csv" onChange={handleFileUpload} style={{ display: 'none' }} />
                 </label>
@@ -302,12 +300,12 @@ CONCLUSION
             <button type="button" onClick={() => setTab('inbox')} style={{ padding: '10px 20px', borderRadius: '8px', border: '1px solid var(--border)', background: 'transparent', color: 'var(--text-secondary)', cursor: 'pointer', fontWeight: 600 }}>Cancel</button>
             <button type="submit" disabled={submitting || !selectedReq || !reportContent.trim()} style={{
               flex: 1, padding: '10px', borderRadius: '8px', border: 'none',
-              background: submitting ? 'rgba(245,158,11,0.4)' : '#F59E0B', color: '#000',
+              background: submitting ? 'rgba(124,58,237,0.4)' : 'var(--accent-primary)', color: '#ffffff',
               cursor: submitting ? 'not-allowed' : 'pointer', fontWeight: 800, fontSize: '0.9rem',
               display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
             }}>
               {submitting ? (
-                <><div style={{ width: 14, height: 14, border: '2px solid rgba(0,0,0,0.3)', borderTopColor: '#000', borderRadius: '50%', animation: 'spin 0.6s linear infinite' }} />Submitting...</>
+                <><div style={{ width: 14, height: 14, border: '2px solid rgba(255,255,255,0.3)', borderTopColor: '#ffffff', borderRadius: '50%', animation: 'spin 0.6s linear infinite' }} />Submitting...</>
               ) : <><Send size={16} /> Submit Report to Admin</>}
             </button>
           </div>
@@ -322,7 +320,7 @@ CONCLUSION
           ) : (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               {completed.map((r, i) => (
-                <div key={i} style={{ padding: '12px 16px', background: 'var(--bg-input)', borderRadius: '10px', borderLeft: '3px solid #10B981', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
+                <div key={i} style={{ padding: '12px 16px', background: 'var(--bg-surface-2)', borderRadius: '10px', borderLeft: '3px solid var(--accent-success)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
                   <div>
                     <div style={{ fontWeight: 700, fontSize: '0.875rem', marginBottom: '2px' }}>{r.product_name}</div>
                     <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>📅 {new Date(r.ts).toLocaleString()}</div>

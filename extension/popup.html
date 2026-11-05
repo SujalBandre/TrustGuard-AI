@@ -9,43 +9,60 @@
 </head>
 <body>
   <div class="container">
+    <!-- Header -->
     <div class="header">
       <div class="logo">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-        </svg>
-        <span>TrustGuard AI</span>
+        <div class="logo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
+          </svg>
+        </div>
+        <span>TrustGuard <span class="logo-accent">AI</span></span>
+        <span class="version-tag">v2.1</span>
       </div>
       <div class="pulse hidden" id="pulseIndicator"></div>
     </div>
 
-    <!-- Idle / Fetching State -->
+    <!-- Idle / Loading State -->
     <div id="loadingState" class="state-container">
-      <div class="bot-icon">🤖</div>
+      <div class="bot-icon" id="botIcon">🛡️</div>
       <h3 id="statusText">Ready to Scan</h3>
-      <p id="subText" class="sub-text">Click below to analyze this product's reviews for bot manipulation.</p>
-      <button id="scanBtn" class="btn btn-primary">Scan Current Page</button>
+      <p id="subText" class="sub-text">Click below to analyze this product's reviews for manipulation, fake reviews, and bot activity.</p>
+      <button id="scanBtn" class="btn btn-primary">🔍 Scan Current Page</button>
     </div>
 
     <!-- Results State -->
     <div id="resultState" class="state-container hidden">
-      <div class="score-ring">
-        <div class="score-circle" id="scoreRing">
+      <!-- URL Status -->
+      <div class="url-status secure" id="urlStatus">
+        <span id="urlStatusIcon">🔒</span>
+        <span id="urlStatusText">URL Verified Secure</span>
+      </div>
+
+      <!-- Trust Score Ring -->
+      <div class="score-ring" id="scoreRing">
+        <div class="score-circle">
           <div class="score-text" id="trustScore">85</div>
         </div>
       </div>
       
       <div class="badge" id="riskBadge">LOW RISK</div>
       
+      <!-- Verdict Card -->
       <div class="verdict-card" id="verdictCard">
-        <h4 id="recommendation">SAFE TO BUY</h4>
-        <p id="productName" class="product-name">Amazon Product</p>
+        <h4 id="recommendation">TRUSTWORTHY</h4>
+        <p id="productName" class="product-name">Product</p>
       </div>
 
+      <!-- Stats -->
       <div class="stats-row">
         <div class="stat">
           <span class="stat-val" id="fakeCount">0</span>
           <span class="stat-label">Fake</span>
+        </div>
+        <div class="stat">
+          <span class="stat-val" id="genuineCount">0</span>
+          <span class="stat-label">Genuine</span>
         </div>
         <div class="stat">
           <span class="stat-val" id="botProb">0%</span>
@@ -56,16 +73,27 @@
           <span class="stat-label">Pages</span>
         </div>
       </div>
+
+      <!-- Tags -->
+      <div class="tags-row" id="tagsRow"></div>
       
+      <!-- Actions -->
       <div style="display: flex; gap: 8px; width: 100%; margin-top: 15px;">
-        <button id="resetBtn" class="btn btn-secondary" style="flex: 1;">Scan New</button>
-        <button id="viewReportBtn" class="btn btn-primary" style="flex: 1.5; background: var(--purple); color: white;">Full Report</button>
+        <button id="resetBtn" class="btn btn-secondary" style="flex: 1;">🔄 Scan New</button>
+        <button id="viewReportBtn" class="btn btn-primary" style="flex: 1.5; background: var(--purple); color: white;">📊 Full Report</button>
       </div>
     </div>
 
-    <div id="errorState" class="hidden" style="margin-top: 20px; text-align: center; color: var(--red);">
-      <p id="errorMsg" style="font-size: 13px;"></p>
-      <button id="retryBtn" class="btn btn-secondary" style="margin-top: 10px;">Retry</button>
+    <!-- Error State -->
+    <div id="errorState" class="error-container hidden">
+      <div class="error-icon">⚠️</div>
+      <p id="errorMsg" class="error-msg"></p>
+      <button id="retryBtn" class="btn btn-secondary">🔁 Retry</button>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      TrustGuard AI v2.1 · Powered by NLP Ensemble + YOLOv8
     </div>
   </div>
 

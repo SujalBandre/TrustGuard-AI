@@ -19,10 +19,10 @@ const API_BASE = 'http://localhost:8001';
 /* ─── Prediction badge config ──────────────────────────────────────────────── */
 const PREDICTION_CONFIG = {
   fake_damage: {
-    color:  '#EF4444',
-    bg:     'rgba(239,68,68,0.12)',
-    border: 'rgba(239,68,68,0.35)',
-    glow:   'rgba(239,68,68,0.4)',
+    color:  '#E53E3E',
+    bg:     'rgba(229,62,62,0.12)',
+    border: 'rgba(229,62,62,0.35)',
+    glow:   'rgba(229,62,62,0.4)',
     icon:   XCircle,
     emoji:  '🚨',
     label:  'Fake Damage',
@@ -31,10 +31,10 @@ const PREDICTION_CONFIG = {
     message: 'This image shows signs of digital manipulation. The damage appears to be artificially inserted to support a fraudulent return or refund claim. High risk of review fraud.',
   },
   real_damage: {
-    color:  '#10B981',
-    bg:     'rgba(16,185,129,0.12)',
-    border: 'rgba(16,185,129,0.35)',
-    glow:   'rgba(16,185,129,0.4)',
+    color:  '#38A169',
+    bg:     'rgba(56,161,105,0.12)',
+    border: 'rgba(56,161,105,0.35)',
+    glow:   'rgba(56,161,105,0.4)',
     icon:   CheckCircle,
     emoji:  '✅',
     label:  'Real Damage',
@@ -156,13 +156,13 @@ function ResultsPanel({ result, filename }) {
       {/* ── File Info Strip ── */}
       <div style={{
         padding: '10px 16px', borderRadius: '8px', fontSize: '0.75rem',
-        background: 'rgba(0,212,255,0.06)', border: '1px solid rgba(0,212,255,0.15)',
+        background: 'rgba(124,58,237,0.08)', border: '1px solid rgba(124,58,237,0.15)',
         color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '10px',
         marginBottom: '20px', flexWrap: 'wrap',
       }}>
-        <Camera size={14} color="var(--cyan)" />
-        <span style={{ color: 'var(--cyan)', fontWeight: 600 }}>File:</span>
-        <span style={{ fontFamily: 'JetBrains Mono, monospace' }}>{filename}</span>
+        <Camera size={14} color="var(--accent-primary)" />
+        <span style={{ color: 'var(--accent-primary)', fontWeight: 600 }}>File:</span>
+        <span style={{ fontFamily: 'var(--font-mono)' }}>{filename}</span>
         <span style={{ color: 'rgba(255,255,255,0.2)' }}>·</span>
         <span style={{
           padding: '2px 10px', borderRadius: '100px', fontWeight: 700,
@@ -203,10 +203,10 @@ function ResultsPanel({ result, filename }) {
           )}
           <div style={{
             marginTop: '16px', padding: '10px 14px', borderRadius: '8px',
-            background: 'rgba(0,212,255,0.06)', border: '1px solid rgba(0,212,255,0.15)',
+            background: 'rgba(124,58,237,0.08)', border: '1px solid rgba(124,58,237,0.15)',
             fontSize: '0.73rem', color: 'var(--text-muted)',
           }}>
-            <span style={{ color: 'var(--cyan)', fontWeight: 700 }}>Threshold:</span>{' '}
+            <span style={{ color: 'var(--accent-primary)', fontWeight: 700 }}>Threshold:</span>{' '}
             ≥{Math.round((details.confidence_threshold || 0.25) * 100)}% to register a detection
           </div>
         </div>
@@ -222,7 +222,7 @@ function ResultsPanel({ result, filename }) {
                 { label: 'Prediction',  value: cfg.label,                          color: cfg.color },
                 { label: 'Confidence',  value: `${Math.round(confidence * 100)}%`,  color: cfg.color },
                 { label: 'Risk Level',  value: cfg.risk,                            color: cfg.color },
-                { label: 'Detections', value: String(details.total_detections ?? 0), color: 'var(--cyan)' },
+                { label: 'Detections', value: String(details.total_detections ?? 0), color: 'var(--accent-primary)' },
               ].map(({ label, value, color }) => (
                 <div key={label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 600 }}>{label}</span>
@@ -379,15 +379,15 @@ export default function DamageClaimVerifier() {
         @keyframes spin      { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
         @keyframes glow-dd   { 0%, 100% { box-shadow: 0 0 20px rgba(239,68,68,0.3); } 50% { box-shadow: 0 0 40px rgba(239,68,68,0.6); } }
         .dd-upload-zone {
-          border: 2px dashed rgba(239,68,68,0.35);
+          border: 2px dashed rgba(124,58,237,0.35);
           border-radius: 16px;
           text-align: center;
           transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
           cursor: pointer;
         }
         .dd-upload-zone:hover, .dd-upload-zone.dragging {
-          border-color: rgba(239,68,68,0.7);
-          background: rgba(239,68,68,0.05);
+          border-color: rgba(124,58,237,0.7);
+          background: rgba(124,58,237,0.05);
         }
         .w-full { width: 100%; }
       `}</style>
@@ -415,16 +415,16 @@ export default function DamageClaimVerifier() {
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '6px' }}>
           <div style={{
             width: 44, height: 44, borderRadius: '14px',
-            background: 'rgba(239,68,68,0.15)',
+            background: 'rgba(124,58,237,0.15)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             animation: 'glow-dd 3s ease-in-out infinite',
           }}>
-            <Camera size={24} color="#EF4444" />
+            <Camera size={24} color="var(--accent-primary)" />
           </div>
           <h1 style={{ fontSize: '1.6rem', fontWeight: 900 }}>Damage Claim Verifier</h1>
           <span style={{
             padding: '4px 12px', borderRadius: '100px', fontSize: '0.62rem', fontWeight: 700,
-            background: 'rgba(239,68,68,0.12)', color: '#EF4444', border: '1px solid rgba(239,68,68,0.3)',
+            background: 'rgba(124,58,237,0.12)', color: 'var(--accent-primary)', border: '1px solid rgba(124,58,237,0.3)',
           }}>
             🔬 YOLOv8 Powered
           </span>
@@ -432,10 +432,10 @@ export default function DamageClaimVerifier() {
         <p className="page-subtitle">
           Upload a product image submitted as part of a return or refund claim.
           The system will classify it as{' '}
-          <strong style={{ color: '#EF4444' }}>Fake Damage</strong>,{' '}
-          <strong style={{ color: '#10B981' }}>Real Damage</strong>, or{' '}
-          <strong style={{ color: '#94A3B8' }}>No Damage</strong>{' '}
-          using a custom-trained <strong style={{ color: '#EF4444' }}>YOLOv8</strong> detection model.
+          <strong style={{ color: 'var(--accent-danger)' }}>Fake Damage</strong>,{' '}
+          <strong style={{ color: 'var(--accent-success)' }}>Real Damage</strong>, or{' '}
+          <strong style={{ color: 'var(--text-secondary)' }}>No Damage</strong>{' '}
+          using a custom-trained <strong style={{ color: 'var(--accent-primary)' }}>YOLOv8</strong> detection model.
         </p>
       </div>
 
@@ -464,11 +464,11 @@ export default function DamageClaimVerifier() {
               />
               <div style={{
                 width: 68, height: 68, borderRadius: '20px',
-                background: 'rgba(239,68,68,0.12)',
+                background: 'rgba(124,58,237,0.12)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 margin: '0 auto 20px',
               }}>
-                <Camera size={32} color="#EF4444" />
+                <Camera size={32} color="var(--accent-primary)" />
               </div>
               <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '8px' }}>
                 Drop damage claim image here
@@ -501,14 +501,14 @@ export default function DamageClaimVerifier() {
                 }}>
                   <div style={{
                     position: 'absolute', top: 0, left: 0, right: 0, height: '4px',
-                    background: 'linear-gradient(90deg, transparent, #EF4444, #10B981, #EF4444, transparent)',
+                    background: 'linear-gradient(90deg, transparent, var(--accent-primary), var(--accent-success), var(--accent-primary), transparent)',
                     animation: 'scanline 1.2s ease-in-out infinite',
-                    boxShadow: '0 0 16px #EF4444',
+                    boxShadow: '0 0 16px var(--accent-primary)',
                   }} />
                   <div style={{ textAlign: 'center', zIndex: 10 }}>
                     <div style={{
                       width: 40, height: 40,
-                      border: '3px solid rgba(239,68,68,0.3)', borderTopColor: '#EF4444',
+                      border: '3px solid rgba(124,58,237,0.3)', borderTopColor: 'var(--accent-primary)',
                       borderRadius: '50%', animation: 'spin 0.8s linear infinite', margin: '0 auto 10px',
                     }} />
                     <div style={{ fontSize: '0.82rem', color: '#fff', fontWeight: 700 }}>Running YOLOv8…</div>
@@ -548,17 +548,17 @@ export default function DamageClaimVerifier() {
             className="btn w-full"
             style={{
               justifyContent: 'center',
-              background: 'linear-gradient(135deg, #EF4444, #B91C1C)',
-              color: '#fff',
-              boxShadow: '0 0 24px rgba(239,68,68,0.35)',
+              background: 'var(--accent-primary)',
+              color: '#000000',
+              boxShadow: '0 0 24px rgba(124,58,237,0.2)',
               border: 'none',
             }}
             disabled={!imageUrl || verifying}
             onClick={runVerification}
           >
             {verifying
-              ? <><div style={{ width: 15, height: 15, border: '2px solid rgba(255,255,255,0.3)', borderTopColor: '#fff', borderRadius: '50%', animation: 'spin 0.7s linear infinite' }} /> Verifying…</>
-              : <><Cpu size={16} /> Verify Claim</>}
+              ? <><div style={{ width: 15, height: 15, border: '2px solid rgba(0,0,0,0.3)', borderTopColor: '#000', borderRadius: '50%', animation: 'spin 0.7s linear infinite' }} /> Verifying…</>
+              : <><Cpu size={16} color="#000000" /> Verify Claim</>}
           </button>
         </div>
 
@@ -595,7 +595,7 @@ export default function DamageClaimVerifier() {
         <div className="card" style={{ padding: '48px', textAlign: 'center' }}>
           <div style={{
             width: 56, height: 56,
-            border: '4px solid rgba(239,68,68,0.2)', borderTopColor: '#EF4444',
+            border: '4px solid rgba(124,58,237,0.2)', borderTopColor: 'var(--accent-primary)',
             borderRadius: '50%', animation: 'spin 0.9s linear infinite', margin: '0 auto 20px',
           }} />
           <h3 style={{ fontWeight: 800, marginBottom: '8px', fontSize: '1.1rem' }}>YOLOv8 is analysing…</h3>
@@ -606,8 +606,8 @@ export default function DamageClaimVerifier() {
             {['Image upload', 'YOLO inference', 'Bbox extraction', 'Verdict'].map(step => (
               <span key={step} style={{
                 padding: '5px 12px', borderRadius: '100px', fontSize: '0.67rem', fontWeight: 600,
-                background: 'rgba(239,68,68,0.10)', color: '#EF4444',
-                border: '1px solid rgba(239,68,68,0.25)', animation: 'pulse 1.5s ease-in-out infinite',
+                background: 'rgba(124,58,237,0.10)', color: 'var(--accent-primary)',
+                border: '1px solid rgba(124,58,237,0.25)', animation: 'pulse 1.5s ease-in-out infinite',
               }}>
                 {step}
               </span>
@@ -626,10 +626,10 @@ export default function DamageClaimVerifier() {
         <div className="card" style={{ padding: '56px', textAlign: 'center' }}>
           <div style={{
             width: 80, height: 80, borderRadius: '24px',
-            background: 'rgba(239,68,68,0.10)',
+            background: 'rgba(124,58,237,0.10)',
             display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px',
           }}>
-            <Camera size={40} color="#EF4444" />
+            <Camera size={40} color="var(--accent-primary)" />
           </div>
           <h3 style={{ fontWeight: 800, marginBottom: '10px', fontSize: '1.1rem' }}>No image uploaded yet</h3>
           <p style={{ fontSize: '0.84rem', color: 'var(--text-muted)', maxWidth: '420px', margin: '0 auto 24px', lineHeight: 1.7 }}>

@@ -1,25 +1,35 @@
-# TrustGuard AI — Root .gitignore
-# ─────────────────────────────────────────────────────────────
 
-# ── Python ────────────────────────────────────────────────────
+# =============================================================================
+# TrustGuard-AI — Production .gitignore
+# =============================================================================
+
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+backend/.env
+frontend/.env
+
+# Python & Bytecode
 __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
 .Python
+*.so
+build/
+dist/
 *.egg
 *.egg-info/
-dist/
-build/
-*.so
-.env
-.venv/
-env/
-venv/
 .eggs/
 
-# ── Dataset images (large, user-supplied — do NOT commit) ─────
-# Keep folder structure (.gitkeep) and data.yaml, ignore images+labels
+# Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+
+# Datasets & Label Caches
 dataset/train/images/*
 !dataset/train/images/.gitkeep
 dataset/train/labels/*
@@ -35,31 +45,57 @@ dataset/test/images/*
 dataset/test/labels/*
 !dataset/test/labels/.gitkeep
 
-# YOLO auto-generated run folders (timestamped training outputs)
-runs/
+# Dataset caches and generated label-check images
+*.cache
+dataset/**/*.cache
+label_check/
 
-# ── YOLOv8 saved model weights (.pt files are large binaries) ─
+# Review datasets
+backend/data/*.csv
+
+# ML Model Weights & Checkpoints
 *.pt
-# Keep the folder itself (.gitkeep tracked), ignore weight files
+*.pth
+*.onnx
+runs/
 backend/damage_detector/saved_models/*.pt
+!backend/damage_detector/saved_models/.gitkeep
 
-# ── Legacy Teachable Machine model weights (if present) ───────
+# Legacy model files
 backend/models/keras_model.h5
 backend/models/labels.txt
 
-# ── Logs ──────────────────────────────────────────────────────
-backend/logs/*.log
-*.log
+# Keep backend/models/lr_pipeline.joblib for inference
 
-# ── Database ──────────────────────────────────────────────────
+# Databases
+*.db
+*.sqlite
+*.sqlite3
 backend/data/*.db
+!backend/data/.gitkeep
 
-# ── Node / Frontend ───────────────────────────────────────────
+# Logs & Runtime Data
+*.log
+backend/logs/*.log
+backend/logs/*.json
+!backend/logs/.gitkeep
+
+# Generated Reports
+reports/*.pdf
+!reports/.gitkeep
+
+# Evaluation outputs
+evaluation_outputs/
+
+# Node / Frontend
 node_modules/
+frontend/node_modules/
 frontend/dist/
-frontend/.env
+dist-ssr/
+*.local
 
-# ── IDE ───────────────────────────────────────────────────────
+# IDE, Agent & System Files
+.agents/
 .vscode/
 .idea/
 *.swp

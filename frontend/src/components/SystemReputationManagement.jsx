@@ -65,14 +65,14 @@ export default function SystemReputationManagement({ data }) {
           </div>
         </div>
 
-        <div className="card" style={{ padding: '16px', borderTop: '3px solid #00D4FF' }}>
+        <div className="card" style={{ padding: '16px', borderTop: '3px solid var(--accent-primary)' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
             <div>
               <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>GENUINE REVIEWS</div>
-              <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#fff', margin: '4px 0' }}>{fakeRatio.genuine || 0}</div>
+              <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#fff', margin: '4px 0', fontFamily: 'var(--font-mono)' }}>{fakeRatio.genuine || 0}</div>
               <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>{genuinePct}% authentic</div>
             </div>
-            <div style={{ padding: '8px', borderRadius: '8px', background: 'rgba(0,212,255,0.1)', color: '#00D4FF' }}>
+            <div style={{ padding: '8px', borderRadius: '8px', background: 'var(--accent-dim)', color: 'var(--accent-primary)' }}>
               <Star size={20} />
             </div>
           </div>
@@ -247,7 +247,7 @@ export default function SystemReputationManagement({ data }) {
                   <XAxis type="number" hide />
                   <YAxis dataKey="name" type="category" tick={{ fontSize: 11, fill: 'var(--text-muted)' }} axisLine={false} tickLine={false} />
                   <RechartsTooltip contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 8, color: 'var(--text-primary)', fontSize: '0.8rem' }} />
-                  <Bar dataKey="value" fill="#00D4FF" radius={[0, 6, 6, 0]} barSize={20} />
+                  <Bar dataKey="value" fill="var(--accent-primary)" radius={[0, 6, 6, 0]} barSize={20} />
                 </BarChart>
               </ResponsiveContainer>
             </div>

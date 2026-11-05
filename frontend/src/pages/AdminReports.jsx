@@ -7,8 +7,8 @@ function TabBtn({ active, onClick, children }) {
     <button onClick={onClick} style={{
       padding: '8px 16px', background: 'none', border: 'none', cursor: 'pointer',
       fontSize: '0.85rem', fontWeight: 700,
-      color: active ? 'var(--cyan)' : 'var(--text-muted)',
-      borderBottom: active ? '2px solid var(--cyan)' : '2px solid transparent',
+      color: active ? 'var(--accent-primary)' : 'var(--text-muted)',
+      borderBottom: active ? '2px solid var(--accent-primary)' : '2px solid transparent',
       transition: 'all 0.2s',
     }}>{children}</button>
   );
@@ -60,7 +60,7 @@ function UserReportsTab() {
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
         <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{reports.length} total · {reports.filter(r => r.status === 'pending').length} pending review</div>
-        <button onClick={fetch} style={{ padding: '6px 12px', borderRadius: '6px', border: '1px solid var(--border)', background: 'var(--bg-input)', color: 'var(--text-secondary)', cursor: 'pointer', fontSize: '0.78rem', display: 'flex', alignItems: 'center', gap: '5px' }}>
+        <button onClick={fetch} style={{ padding: '6px 12px', borderRadius: '6px', border: '1px solid var(--accent-primary)', background: 'transparent', color: 'var(--accent-primary)', cursor: 'pointer', fontSize: '0.78rem', display: 'flex', alignItems: 'center', gap: '5px' }}>
           <RefreshCw size={12} /> Refresh
         </button>
       </div>
@@ -72,7 +72,7 @@ function UserReportsTab() {
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
           {reports.map((r, i) => (
-            <div key={i} style={{ padding: '14px 16px', background: 'var(--bg-input)', borderRadius: '10px', borderLeft: `3px solid ${r.status === 'pending' ? '#F59E0B' : '#10B981'}` }}>
+            <div key={i} style={{ padding: '14px 16px', background: 'var(--bg-surface-2)', borderRadius: '10px', borderLeft: `3px solid ${r.status === 'pending' ? 'var(--accent-warning)' : 'var(--accent-success)'}` }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px', flexWrap: 'wrap', gap: '6px' }}>
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '3px' }}>
@@ -80,7 +80,7 @@ function UserReportsTab() {
                     <span style={{ fontWeight: 700, fontSize: '0.875rem' }}>{r.user_name || 'Anonymous'}</span>
                     {r.user_email && <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>{r.user_email}</span>}
                   </div>
-                  <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'monospace' }}>
+                  <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
                     🔗 {r.product_url?.slice(0, 60)}{r.product_url?.length > 60 ? '...' : ''}
                   </div>
                 </div>
@@ -92,13 +92,13 @@ function UserReportsTab() {
                   </span>
                 </div>
               </div>
-
+ 
               <div style={{ padding: '8px 10px', background: 'rgba(255,255,255,0.03)', borderRadius: '6px', fontSize: '0.8rem', color: 'var(--text-secondary)', fontStyle: 'italic', marginBottom: '10px' }}>
                 "{r.message}"
               </div>
-
+ 
               {r.status === 'pending' && (
-                <button onClick={() => markReviewed(r.id)} style={{ padding: '5px 12px', borderRadius: '6px', border: '1px solid rgba(16,185,129,0.4)', background: 'rgba(16,185,129,0.08)', color: '#10B981', cursor: 'pointer', fontSize: '0.75rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '5px' }}>
+                <button onClick={() => markReviewed(r.id)} style={{ padding: '5px 12px', borderRadius: '6px', border: '1px solid var(--accent-success)', background: 'transparent', color: 'var(--accent-success)', cursor: 'pointer', fontSize: '0.75rem', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '5px' }}>
                   <CheckCircle size={12} /> Mark Reviewed
                 </button>
               )}
@@ -135,7 +135,7 @@ function AnalystReportsTab() {
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
         <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{reports.length} analyst reports received · {reports.filter(r => !r.read_by_admin).length} unread</div>
-        <button onClick={fetch} style={{ padding: '6px 12px', borderRadius: '6px', border: '1px solid var(--border)', background: 'var(--bg-input)', color: 'var(--text-secondary)', cursor: 'pointer', fontSize: '0.78rem', display: 'flex', alignItems: 'center', gap: '5px' }}>
+        <button onClick={fetch} style={{ padding: '6px 12px', borderRadius: '6px', border: '1px solid var(--accent-primary)', background: 'transparent', color: 'var(--accent-primary)', cursor: 'pointer', fontSize: '0.78rem', display: 'flex', alignItems: 'center', gap: '5px' }}>
           <RefreshCw size={12} /> Refresh
         </button>
       </div>
@@ -147,11 +147,11 @@ function AnalystReportsTab() {
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           {reports.map((r, i) => (
-            <div key={i} style={{ borderRadius: '12px', border: `1px solid ${!r.read_by_admin ? 'rgba(0,212,255,0.3)' : 'var(--border)'}`, background: !r.read_by_admin ? 'rgba(0,212,255,0.03)' : 'var(--bg-input)', overflow: 'hidden' }}>
+            <div key={i} style={{ borderRadius: '12px', border: `1px solid ${!r.read_by_admin ? 'rgba(124,58,237,0.3)' : 'var(--border)'}`, background: !r.read_by_admin ? 'rgba(124,58,237,0.03)' : 'var(--bg-surface-2)', overflow: 'hidden' }}>
               <div style={{ padding: '14px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px', cursor: 'pointer' }} onClick={() => setExpanded(expanded === i ? null : i)}>
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '3px' }}>
-                    {!r.read_by_admin && <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--cyan)', flexShrink: 0 }} />}
+                    {!r.read_by_admin && <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--accent-primary)', flexShrink: 0 }} />}
                     <span style={{ fontWeight: 700, fontSize: '0.875rem' }}>{r.product_name}</span>
                   </div>
                   <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>
@@ -159,7 +159,7 @@ function AnalystReportsTab() {
                   </div>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  {!r.read_by_admin && <span style={{ fontSize: '0.68rem', padding: '2px 8px', borderRadius: '100px', background: 'rgba(0,212,255,0.1)', color: 'var(--cyan)', fontWeight: 700 }}>NEW</span>}
+                  {!r.read_by_admin && <span style={{ fontSize: '0.68rem', padding: '2px 8px', borderRadius: '100px', background: 'rgba(124,58,237,0.12)', color: 'var(--accent-primary)', fontWeight: 700 }}>NEW</span>}
                   <Eye size={14} color="var(--text-muted)" />
                   <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>{expanded === i ? '▲ Collapse' : '▼ Read Report'}</span>
                 </div>
@@ -223,19 +223,19 @@ function PendingRequestsTab() {
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
           {requests.map((r, i) => (
-            <div key={i} style={{ padding: '14px 16px', background: 'var(--bg-input)', borderRadius: '10px', borderLeft: `3px solid ${r.status === 'pending' ? '#F59E0B' : '#10B981'}` }}>
+            <div key={i} style={{ padding: '14px 16px', background: 'var(--bg-surface-2)', borderRadius: '10px', borderLeft: `3px solid ${r.status === 'pending' ? 'var(--accent-warning)' : 'var(--accent-success)'}` }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px', flexWrap: 'wrap', gap: '4px' }}>
                 <span style={{ fontWeight: 700, fontSize: '0.875rem' }}>{r.product_name}</span>
                 <StatusBadge status={r.status} />
               </div>
-              <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', marginBottom: '6px', fontFamily: 'monospace' }}>🔗 {r.product_url?.slice(0,60)}...</div>
+              <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', marginBottom: '6px', fontFamily: 'var(--font-mono)' }}>🔗 {r.product_url?.slice(0,60)}...</div>
               <div style={{ fontSize: '0.78rem', color: 'var(--text-secondary)', fontStyle: 'italic', marginBottom: '6px' }}>"{r.admin_note}"</div>
               {r.analysis_summary && Object.keys(r.analysis_summary).length > 0 && (
                 <div style={{ display: 'flex', gap: '12px', fontSize: '0.72rem', color: 'var(--text-muted)' }}>
-                  <span>Trust: <b style={{ color: 'var(--cyan)' }}>{r.analysis_summary.trust_score}%</b></span>
-                  <span>Fake: <b style={{ color: '#EF4444' }}>{r.analysis_summary.fake_count}</b></span>
+                  <span>Trust: <b style={{ color: 'var(--accent-primary)' }}>{r.analysis_summary.trust_score}%</b></span>
+                  <span>Fake: <b style={{ color: 'var(--accent-danger)' }}>{r.analysis_summary.fake_count}</b></span>
                   <span>Total: <b>{r.analysis_summary.total_reviews}</b></span>
-                  <span>Risk: <b style={{ color: r.analysis_summary.risk_level === 'HIGH' ? '#EF4444' : '#F59E0B' }}>{r.analysis_summary.risk_level}</b></span>
+                  <span>Risk: <b style={{ color: r.analysis_summary.risk_level === 'HIGH' ? 'var(--accent-danger)' : 'var(--accent-warning)' }}>{r.analysis_summary.risk_level}</b></span>
                 </div>
               )}
               <div style={{ fontSize: '0.65rem', color: 'var(--text-muted)', marginTop: '6px' }}>📅 {new Date(r.ts).toLocaleString()}</div>
@@ -254,7 +254,7 @@ export default function AdminReports() {
     <div>
       <div className="page-header">
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '6px' }}>
-          <FileText size={28} color="var(--cyan)" />
+          <FileText size={28} color="var(--text-primary)" />
           <h1 style={{ fontSize: '1.5rem', fontWeight: 800 }}>Reports & Requests</h1>
         </div>
         <p style={{ color: 'var(--text-secondary)', fontSize: '0.875rem' }}>

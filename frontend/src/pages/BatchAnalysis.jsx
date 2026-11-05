@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Upload, FileText, AlertCircle, CheckCircle, Download, Clock, ExternalLink } from 'lucide-react';
+import { Upload, FileText, AlertCircle, CheckCircle, Download, Clock, ExternalLink, AlertTriangle, Cpu, Shield } from 'lucide-react';
 import {
   RiskBadge, TagChip, ProgressBar, Spinner, AuthenticityMeter, StatCard
 } from '../components/ui';
@@ -7,7 +7,6 @@ import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer,
   LineChart, Line, CartesianGrid
 } from 'recharts';
-import { AlertTriangle, Cpu, Shield } from 'lucide-react';
 import axios from 'axios';
 
 const SAMPLE_CSV = `text_,rating,author,timestamp
@@ -106,7 +105,7 @@ export default function BatchAnalysis() {
     <div>
       <div className="page-header">
         <div className="flex items-center gap-3 mb-2">
-          <Upload size={28} color="var(--cyan)" />
+          <Upload size={28} color="var(--text-primary)" />
           <h1>Batch Analysis</h1>
         </div>
         <p className="page-subtitle">Upload a CSV of reviews — get a complete manipulation audit report · view historical product analyses</p>
@@ -121,8 +120,8 @@ export default function BatchAnalysis() {
           <button key={key} onClick={() => { setMainTab(key); if (key === 'history') fetchHistory(); }} style={{
             padding: '8px 16px', background: 'none', border: 'none', cursor: 'pointer',
             fontSize: '0.85rem', fontWeight: 700,
-            color: mainTab === key ? 'var(--cyan)' : 'var(--text-muted)',
-            borderBottom: mainTab === key ? '2px solid var(--cyan)' : '2px solid transparent',
+            color: mainTab === key ? 'var(--accent-primary)' : 'var(--text-muted)',
+            borderBottom: mainTab === key ? '2px solid var(--accent-primary)' : '2px solid transparent',
             transition: 'all 0.2s',
           }}>{label}</button>
         ))}
@@ -133,7 +132,7 @@ export default function BatchAnalysis() {
         <div className="card">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
             <h3 style={{ fontWeight: 700, fontSize: '0.9rem' }}>Previously Analyzed Products</h3>
-            <button onClick={fetchHistory} style={{ padding: '6px 12px', borderRadius: '6px', border: '1px solid var(--border)', background: 'var(--bg-input)', color: 'var(--text-secondary)', cursor: 'pointer', fontSize: '0.78rem' }}>
+            <button onClick={fetchHistory} style={{ padding: '6px 12px', borderRadius: '6px', border: '1px solid var(--accent-primary)', background: 'transparent', color: 'var(--accent-primary)', cursor: 'pointer', fontSize: '0.78rem' }}>
               🔄 Refresh
             </button>
           </div>
@@ -146,9 +145,9 @@ export default function BatchAnalysis() {
           ) : (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               {history.map((entry, i) => {
-                const riskC = entry.risk_level === 'HIGH' ? '#EF4444' : entry.risk_level === 'MEDIUM' ? '#F59E0B' : '#10B981';
+                const riskC = entry.risk_level === 'HIGH' ? 'var(--accent-danger)' : entry.risk_level === 'MEDIUM' ? 'var(--accent-warning)' : 'var(--accent-success)';
                 return (
-                  <div key={i} style={{ padding: '12px 16px', background: 'var(--bg-input)', borderRadius: '10px', borderLeft: `3px solid ${riskC}`, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
+                  <div key={i} style={{ padding: '12px 16px', background: 'var(--bg-surface-2)', borderRadius: '10px', borderLeft: `3px solid ${riskC}`, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
                     <div style={{ flex: 1, minWidth: '200px' }}>
                       <div style={{ fontWeight: 700, fontSize: '0.875rem', marginBottom: '2px' }}>{entry.product_name || 'Unknown Product'}</div>
                       <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginBottom: '4px' }}>
@@ -156,21 +155,21 @@ export default function BatchAnalysis() {
                       </div>
                       <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
                         {(entry.tags || []).slice(0, 3).map((t, j) => (
-                          <span key={j} style={{ fontSize: '0.58rem', padding: '1px 6px', borderRadius: '100px', background: 'rgba(0,212,255,0.08)', color: 'var(--cyan)', fontFamily: 'monospace' }}>{t}</span>
+                          <span key={j} style={{ fontSize: '0.58rem', padding: '1px 6px', borderRadius: '100px', background: 'rgba(124,58,237,0.12)', color: 'var(--accent-primary)', fontFamily: 'var(--font-mono)' }}>{t}</span>
                         ))}
                       </div>
                     </div>
                     <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
                       <div style={{ textAlign: 'center' }}>
-                        <div style={{ fontSize: '1.2rem', fontWeight: 800, color: riskC }}>{entry.trust_score}%</div>
+                        <div style={{ fontSize: '1.2rem', fontWeight: 800, color: riskC, fontFamily: 'var(--font-mono)' }}>{entry.trust_score}%</div>
                         <div style={{ fontSize: '0.6rem', color: 'var(--text-muted)' }}>Trust</div>
                       </div>
                       <div style={{ textAlign: 'center' }}>
-                        <div style={{ fontSize: '1.2rem', fontWeight: 800, color: '#EF4444' }}>{entry.fake_count}</div>
+                        <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--accent-danger)', fontFamily: 'var(--font-mono)' }}>{entry.fake_count}</div>
                         <div style={{ fontSize: '0.6rem', color: 'var(--text-muted)' }}>Fake</div>
                       </div>
                       <div style={{ textAlign: 'center' }}>
-                        <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--text-secondary)' }}>{entry.total_reviews}</div>
+                        <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>{entry.total_reviews}</div>
                         <div style={{ fontSize: '0.6rem', color: 'var(--text-muted)' }}>Total</div>
                       </div>
                       <a href={entry.product_url} target="_blank" rel="noopener noreferrer" style={{ padding: '6px 10px', borderRadius: '6px', border: '1px solid var(--border)', background: 'transparent', color: 'var(--text-muted)', cursor: 'pointer', fontSize: '0.75rem', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '4px' }}>
@@ -203,14 +202,14 @@ export default function BatchAnalysis() {
             style={{ display: 'none' }}
             onChange={e => e.target.files[0] && processFile(e.target.files[0])}
           />
-          <Upload size={40} color="var(--cyan)" style={{ marginBottom: '1rem' }} />
+          <Upload size={40} color="var(--accent-primary)" style={{ marginBottom: '1rem' }} />
           <h3 className="font-display" style={{ color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
             {file ? file.name : 'Drop your CSV here or click to browse'}
           </h3>
           <p className="text-sm text-muted">
-            Expected columns: <code style={{ color: 'var(--cyan)' }}>text_</code> (required),&nbsp;
-            <code style={{ color: 'var(--cyan)' }}>rating</code>, <code style={{ color: 'var(--cyan)' }}>author</code>,&nbsp;
-            <code style={{ color: 'var(--cyan)' }}>timestamp</code>
+            Expected columns: <code style={{ color: 'var(--accent-primary)' }}>text_</code> (required),&nbsp;
+            <code style={{ color: 'var(--accent-primary)' }}>rating</code>, <code style={{ color: 'var(--accent-primary)' }}>author</code>,&nbsp;
+            <code style={{ color: 'var(--accent-primary)' }}>timestamp</code>
           </p>
         </div>
 
@@ -246,7 +245,7 @@ export default function BatchAnalysis() {
         <>
           {/* Summary Cards */}
           <div className="stats-grid mb-4">
-            <StatCard icon={FileText}      label="Total Reviews"  value={result.total_reviews}   color="cyan"   />
+            <StatCard icon={FileText}      label="Total Reviews"  value={result.total_reviews}   color="purple"   />
             <StatCard icon={AlertTriangle} label="Fake Detected"  value={result.fake_count}       color="red"    />
             <StatCard icon={CheckCircle}   label="Genuine"        value={result.real_count}       color="green"  />
             <StatCard icon={Shield}        label="Trust Score"    value={`${result.trust_score}%`} color="purple" />
